@@ -19,7 +19,7 @@ header{
 }
 
 /* ----------------------- Menu principal ----------------------- */
-.flex-menu{
+.flex-menu{ /*FIXME no funciona el sticky*/
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -59,30 +59,41 @@ div a.menu:hover:not(.activa){
 .flex-cuerpo{
 	width: 100%;
 	justify-content: left;
+	min-height: 400px;
 }
 
 .flex-productos{
 	display: flex;
-	justify-content: space-around;
+	justify-content: left;
 	flex-wrap: wrap;
 	width: 75%;
 	padding: 10px;
-	/*TODO esto es sólo para ver hasta dónde va*/
-	border-color: #111111;
-	border-style: solid;
+
 }
 
-.producto {
+.producto { /*FIXME no sé cómo hacer para que se pueda ver bien cuando se pone más de una línea de texto*/
 	/* Add shadows to create the "card" effect */
 	width: 100%;
-	height: auto;
+	height: 460px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	max-width: 250px;
-	margin: auto;
+	margin: 10px;
 	text-align: center;
 	transition: 0.3s;
-	border-color: #111111;
-  }
+ }
+
+/* On mouse-over, add a deeper shadow */
+.producto:hover {
+	box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+	border-radius: 10px 10px 0 0;
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
 
 .precio {
 	color: grey;
@@ -95,8 +106,6 @@ div a.menu:hover:not(.activa){
   padding: 15px;
   color: white;
   background-color: #000;
-	border-color: cadetblue;
-	border-style: solid;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -106,23 +115,6 @@ div a.menu:hover:not(.activa){
 .producto button:hover{
 	opacity: 0.7;
 }
-
-/* Add rounded corners to the top left and the top right corner of the image */
-img {
-	border-radius: 10px 10px 0 0;
-	max-width: 100%;
-	height: auto;
-	object-fit: cover;
-  }
-
-  /* On mouse-over, add a deeper shadow */
-  .producto:hover {
-	box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
-
-  }
-  
-
-  
 
 /* Si bajamos de 500px se nos stackean los productos en columnas */
 @media (max-width: 500px) {
@@ -140,14 +132,18 @@ img {
 }
 
 aside {
+	margin-top: 10px;
+	min-width: 15%;
 	max-width: 25%;
 	padding-left: 15px;
+	padding-right: 15px;
 	float: right;
 	position: relative;
 	font-weight: bold;
-	text-transform: uppercase;
-
+	border-left-color: #6e6e6e;
+	border-left-style: solid;
 }
+
 
 /* -- ICONOS --*/
 
@@ -187,7 +183,6 @@ aside {
 }
 
 .fa-print {
-	visibility: hidden;
 	background: #6e6e6e;
 	color: white;
 }
@@ -205,5 +200,27 @@ footer{
 	background-color: #333;
 }
 
+/* ----------------------- PARA CONTACTO ----------------------- */
 
+#me{
+	width: 20%;
+	height: 20%;
+	border-radius: 50%;
+	float: right;
+	vertical-align: hanging;
+}
 
+#about{
+	justify-content: center;
+	text-align: justify;
+  	text-justify: inter-word;
+	margin-left: 35px;  
+	margin-right: 35px;  
+}
+
+.flex-aboutme{
+	width: 100%;
+	display: flex;
+	justify-content: left;
+	padding: 10px;
+}

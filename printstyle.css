@@ -1,0 +1,201 @@
+
+* {
+    box-sizing: border-box;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+/* ----------------------- Cabecera ----------------------- */
+
+#portada{
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 50%;
+}
+
+header{
+    width:100%;
+    height: auto;
+}
+
+/* ----------------------- Menu principal ----------------------- */
+.flex-menu{
+    display: flex;
+    visibility: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    background-color: #333;
+    overflow: hidden;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+}
+
+/* Los elementos del menú principal*/
+div a.menu{
+    font-weight: bold;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Los elementos del menú principal al pasar el
+ratón por encima (si no están activos)*/
+div a.menu:hover:not(.activa){
+    background-color: #111;
+}
+
+/* Para que la pestaña activa destaque*/
+#activa {
+    background-color: #006eb6;
+}
+
+/* ----------------------- Cuerpo de página ----------------------- */
+
+.flex-cuerpo{
+    width: 100%;
+    justify-content: left;
+}
+
+.flex-productos{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 75%;
+    padding: 10px;
+
+}
+
+.producto {
+    /* Add shadows to create the "card" effect */
+    width: 100%;
+    height: 460px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 250px;
+    margin: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.producto:hover {
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+    border-radius: 10px 10px 0 0;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.precio {
+    color: grey;
+    font-size: 22px;
+}
+
+.producto button{
+    border: none;
+    outline: 0;
+    padding: 15px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.producto button:hover{
+    opacity: 0.7;
+}
+
+/* Si bajamos de 500px se nos stackean los productos en columnas */
+@media (max-width: 500px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+/* --------------- Menu lateral ----------------- */
+.flex-menusocial{
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+aside {
+    max-width: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: right;
+    position: relative;
+    font-weight: bold;
+}
+
+
+/* -- ICONOS --*/
+
+/* General */
+.fa {
+    margin: 0 6px 6px 0;
+    padding: 10px;
+    font-size: 50px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: transform .2s; /* Animation */
+}
+
+/* Efecto al pasar el ratón por encima */
+.fa:hover {
+    opacity: 0.9;
+    transform: scale(1.2);
+}
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+.fa-instagram {
+    background: #E1306C;
+    color: white;
+}
+
+.fa-print {
+    background: #6e6e6e;
+    color: white;
+}
+
+
+/* ----------------------- Pie de página ----------------------- */
+
+footer{
+    width: 100%;
+    height: 50px;
+    margin-top: 3%;
+    text-align: center;
+    padding: 17px;
+    color: white;
+    background-color: #333;
+}
+
+
+

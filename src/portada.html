@@ -9,7 +9,7 @@
     <!--- Formato de caracteres --->
     <meta charset="UTF-8">
     <!--- Link a la hoja de CSS --->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <!--- Nombre del autor --->
     <meta name="autor" content="Esther García Gallego">
     <!-- Librería de iconos -->
@@ -19,14 +19,14 @@
 <body>
 <!------------------------------- Contenedor del cuerpo de la página ------------------------------->
 <header>
-    <img id="portada" src="images/atodocolor.png" alt="Titulo">
+    <img id="portada" src="../images/atodocolor.png" alt="Titulo">
 
     <!--- Menu principal --->
     <div class="flex-menu">
         <a class="menu" id="activa" href="portada.html"> Home </a>
         <a class="menu" href="who.html"> Quiénes somos </a>
         <a class="menu" href="contacto.html"> Contacto </a>
-        <a class="menu" href="portada.html"> Blog </a>
+        <a class="menu" href="who.html"> Blog </a>
     </div>
 </header>
 
@@ -34,13 +34,11 @@
 
     <!--- Barra lateral --->
     <aside>
-        <p>Síguenos en nuestras redes sociales:</p>
         <span class="flex-menusocial">
             <!-- Iconos sociales --->
             <a href="https://facebook.com" class="fa fa-facebook"></a>
             <a href="https://instagram.com" class="fa fa-instagram"></a>
             <a href="https://twitter.com" class="fa fa-twitter"></a>
-            <a href="producto_imprimir.html" class="fa fa-print"></a>
         </span>
     </aside>
 
@@ -49,35 +47,35 @@
         <div class="flex-productos">
             <!-- Producto 1 -->
             <div class="producto">
-                <img src="images/red.jpg" alt="Rojo">
+                <img src="../images/pencil.png" alt="Lápiz">
                 <h1> Rojo </h1>
                 <p class="precio">10,99€</p>
-                <p>Algo de texto sobre el producto...</p>
-                <p><button>Saber más</button></p>
+                <p>Algo de texto sobre el producto... </p>
+                <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
             </div>
 
             <div class="producto">
-                <img src="images/red.jpg" alt="Rojo">
+                <img src="../images/caballete.png" alt="caballete">
                 <h1> Rojo </h1>
                 <p class="precio">11,99€</p>
                 <p>Algo de texto sobre el producto...</p>
-                <p><button>Saber más</button></p>
+                <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
             </div>
 
             <div class="producto">
-                <img src="images/red.jpg" alt="Rojo">
+                <img src="../images/pincel.png" alt="pincel">
                 <h1> Rojo </h1>
                 <p class="precio">12,99€</p>
                 <p>Algo de texto sobre el producto...</p>
-                <p><button>Saber más</button></p>
+                <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
             </div>
 
             <div class="producto">
-                <img src="images/red.jpg" alt="Rojo">
+                <img src="../images/red.jpg" alt="Rojo">
                 <h1> Rojo </h1>
                 <p class="precio">13,99€</p>
                 <p>Algo de texto sobre el producto...</p>
-                <p><button>Saber más</button></p>
+                <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
             </div>
         </div>
     </section>
@@ -86,7 +84,7 @@
 
 
 <!--- Pie de página --->
-<footer> 2022 &copy; Esther García Gallego</footer>
+<footer> Copyright &copy; 2022 Esther García Gallego</footer>
 
 
 </body>

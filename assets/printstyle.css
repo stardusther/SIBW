@@ -6,53 +6,125 @@
 
 /* ----------------------- Cabecera ----------------------- */
 
-#portada{
-    display: block;
+#logo{
+    visibility: visible;
+    float: center;
+    display: flex;
+    border-radius: 50%;
+    background-color: lightsteelblue;
+    color: white;
+    margin: 100px 0px 0px 0px;
+    padding: 17px 18px;
+    font-size: 50px;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header-flex{
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
-    height: auto;
-    min-width: 50%;
+}
+
+h1{
+    font-size: 5em;
+    font-family: 'Didact Gothic', sans-serif;
+    text-align: center;
 }
 
 header{
-    width:100%;
-    height: auto;
+    visibility: hidden;
+    width: 100%;
+    height: 10em;
+    text-align: center;
+}
+
+header p{
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: bolder;
+    font-size: large;
+}
+
+/* Para crear el efecto máquina de escribir*/
+
+#typed-out {
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: bold;
+    overflow: hidden;
+    padding-right: 5px;
+    border-right: .15em solid #7694b7;
+    font-size: large;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2.5s steps(30, end) forwards,
+    blink 1.2s infinite;
+}
+
+.typeoutcontainer {
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from { border-color: transparent }
+    to { border-color: #7694b7; }
 }
 
 /* ----------------------- Menu principal ----------------------- */
-.flex-menu{
+.flex-menu{ /*FIXME no funciona el sticky*/
     display: flex;
     visibility: hidden;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
-    background-color: #333;
-    overflow: hidden;
+    background-color: #7694b7;
+    overflow: auto;
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 0;
     width: 100%;
-
 }
 
 /* Los elementos del menú principal*/
-div a.menu{
+nav a.menu{
     font-weight: bold;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+
 }
+
+/*.fa-shopping-cart{
+	display: inline-block;
+	color: white;
+	text-align: right;
+	margin-left: 90%;
+	border-color: white;
+	border-style: dashed;
+}
+
+.fa-shopping-cart:hover {
+	opacity: 0.9;
+}*/
 
 /* Los elementos del menú principal al pasar el
 ratón por encima (si no están activos)*/
-div a.menu:hover:not(.activa){
-    background-color: #111;
+nav a.menu:hover:not(.activa){
+    background-color: #90a6c0;
 }
 
 /* Para que la pestaña activa destaque*/
 #activa {
-    background-color: #006eb6;
+    background-color: #768ba5;
 }
 
 /* ----------------------- Cuerpo de página ----------------------- */
@@ -60,18 +132,18 @@ div a.menu:hover:not(.activa){
 .flex-cuerpo{
     width: 100%;
     justify-content: left;
+    min-height: 400px;
 }
 
 .flex-productos{
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
     flex-wrap: wrap;
     width: 75%;
     padding: 10px;
-
 }
 
-.producto {
+.producto { /*FIXME no sé cómo hacer para que se pueda ver bien cuando se pone más de una línea de texto*/
     /* Add shadows to create the "card" effect */
     width: 100%;
     height: 460px;
@@ -116,6 +188,12 @@ img {
     opacity: 0.7;
 }
 
+article{
+    justify-content: center;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 /* Si bajamos de 500px se nos stackean los productos en columnas */
 @media (max-width: 500px) {
     .flex-container {
@@ -133,14 +211,14 @@ img {
 }
 
 aside {
-    max-width: 25%;
-    padding-left: 15px;
-    padding-right: 15px;
+    visibility: hidden;
+    display: flex;
     float: right;
     position: relative;
     font-weight: bold;
+    border-left-color: #90a6c0;
+    border-left-style: solid;
 }
-
 
 /* -- ICONOS --*/
 
@@ -148,7 +226,7 @@ aside {
 .fa {
     margin: 0 6px 6px 0;
     padding: 10px;
-    font-size: 50px;
+    font-size: 15px;
     width: 35px;
     height: 35px;
     text-align: center;
@@ -188,14 +266,38 @@ aside {
 /* ----------------------- Pie de página ----------------------- */
 
 footer{
+    visibility: hidden;
     width: 100%;
     height: 50px;
     margin-top: 3%;
     text-align: center;
     padding: 17px;
     color: white;
-    background-color: #333;
+    background-color: #7694b7;
+    font-weight: bold;
 }
 
+/* ----------------------- PARA CONTACTO ----------------------- */
 
+#me{
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    float: right;
+    vertical-align: hanging;
+}
 
+#about{
+    justify-content: center;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.flex-aboutme{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+}

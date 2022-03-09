@@ -3,31 +3,42 @@
 
 <head>
     <!--- Título de la pestaña --->
-    <title> A todo color </title>
+    <title> artsy </title>
     <!--- Para el responsive design --->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--- Formato de caracteres --->
     <meta charset="UTF-8">
     <!--- Link a la hoja de CSS --->
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <!--- Nombre del autor --->
     <meta name="autor" content="Esther García Gallego">
     <!-- Librería de iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>
+    <!--- google fonts--->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <!------------------------------- Contenedor del cuerpo de la página ------------------------------->
 <header>
-    <img id="portada" src="../images/atodocolor.png" alt="Titulo">
-
-    <!--- Menu principal --->
-    <div class="flex-menu">
-        <a class="menu" href="portada.html"> Home </a>
-        <a class="menu" href="who.html"> Quiénes somos </a>
-        <a class="menu" href="contacto.html"> Contacto </a>
-        <a class="menu" href="who.html"> Blog </a>
+    <div class="header-flex">
+        <i id="logo" class="fas fa-brush"></i>
+        <h1> artsy </h1>
     </div>
+
+    <div class="typeoutcontainer">
+        <div id="typed-out"> Todo lo que necesitas para hacer arte</div>
+    </div>
+    <!--- Menu principal --->
+    <nav class="flex-menu">
+        <a class="menu" id="activa" href="portada.html"> Home </a>
+        <a class="menu" href="contacto.html"> Quiénes somos </a>
+        <a class="menu" href="contacto.html"> Contacto </a>
+        <a class="menu" href="contacto.html"> Blog </a>
+        <!--i class='fas fa-shopping-cart'></i-->
+    </nav>
 </header>
 
 <div class="flex-cuerpo">
@@ -41,26 +52,25 @@
             <a href="https://twitter.com" class="fa fa-twitter"></a>
             <a href="producto_imprimir.html" class="fa fa-print"></a>
         </span>
+        <ul>
+            <li><a href=#> Enlace de interés </a></li>
+            <li><a href=#> Enlace de interés </a></li>
+            <li><a href=#> Enlace de interés </a></li>
+        </ul>
     </aside>
 
-    <!--- Producto --->
-    <section>
-        <div class="flex-productos">
-            <!-- Producto 1 -->
-            <div class="producto">
-                <img src="../images/red.jpg" alt="Rojo">
-                <h1> Rojo </h1>
-                <p class="precio">10,99€</p>
-            </div>
-        </div>
-    </section>
+    <!--- Productos --->
+    <article>
+        <h2>Producto</h2>
+        <h4>Marca</h4><h5>Precio</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae neque eget risus facilisis imperdiet non in elit. Phasellus euismod nunc ut laoreet rutrum. Vestibulum pretium viverra neque mollis volutpat. Nullam quis est nec enim viverra sodales. Ut nec lacus lacinia, pellentesque mi et, mattis quam. Integer in nisl velit. Vestibulum ut ornare ex, non vestibulum ligula. Curabitur suscipit sem et rutrum rhoncus.</p>
+        <p>Vivamus laoreet elit eu massa dapibus fringilla. Proin sit amet erat viverra, porttitor diam nec, bibendum sapien. Vestibulum ullamcorper placerat elementum. Suspendisse a erat at ipsum euismod tincidunt ac vestibulum lacus. Duis turpis odio, porta at dictum vel, condimentum a massa. Proin ultrices, tortor vel aliquet pulvinar, turpis est laoreet massa, ut bibendum erat mauris non massa. Suspendisse ut rhoncus dui.</p>
+    </article>
 
 </div>
 
-
 <!--- Pie de página --->
-<footer> 2022 &copy; Esther García Gallego</footer>
-
+<footer> Copyright &copy; 2022 Esther García Gallego</footer>
 
 </body>
 

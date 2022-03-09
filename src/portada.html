@@ -13,21 +13,32 @@
     <!--- Nombre del autor --->
     <meta name="autor" content="Esther García Gallego">
     <!-- Librería de iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>
+    <!--- google fonts--->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <!------------------------------- Contenedor del cuerpo de la página ------------------------------->
 <header>
-    <img id="portada" src="../images/atodocolor.png" alt="Titulo">
+    <div class="header-flex">
+        <i id="logo" class="fas fa-brush"></i>
+        <h1> artsy </h1>
+    </div>
 
+    <div class="typeoutcontainer">
+        <div id="typed-out"> Todo lo que necesitas para hacer arte</div>
+    </div>
     <!--- Menu principal --->
-    <div class="flex-menu">
+    <nav class="flex-menu">
         <a class="menu" id="activa" href="portada.html"> Home </a>
         <a class="menu" href="who.html"> Quiénes somos </a>
         <a class="menu" href="contacto.html"> Contacto </a>
         <a class="menu" href="who.html"> Blog </a>
-    </div>
+        <!--i class='fas fa-shopping-cart'></i-->
+    </nav>
 </header>
 
 <div class="flex-cuerpo">
@@ -51,30 +62,6 @@
                 <h1> Rojo </h1>
                 <p class="precio">10,99€</p>
                 <p>Algo de texto sobre el producto... </p>
-                <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
-            </div>
-
-            <div class="producto">
-                <img src="../images/caballete.png" alt="caballete">
-                <h1> Rojo </h1>
-                <p class="precio">11,99€</p>
-                <p>Algo de texto sobre el producto...</p>
-                <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
-            </div>
-
-            <div class="producto">
-                <img src="../images/pincel.png" alt="pincel">
-                <h1> Rojo </h1>
-                <p class="precio">12,99€</p>
-                <p>Algo de texto sobre el producto...</p>
-                <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
-            </div>
-
-            <div class="producto">
-                <img src="../images/red.jpg" alt="Rojo">
-                <h1> Rojo </h1>
-                <p class="precio">13,99€</p>
-                <p>Algo de texto sobre el producto...</p>
                 <p><button onclick="window.location.href = 'producto.html';">Saber más</button></p>
             </div>
         </div>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--- Formato de caracteres --->
     <meta charset="UTF-8">
-    <!--- Link a la hoja de CSS --->
+    <!--- Link a las hojas de CSS --->
     <link rel="stylesheet" href="../assets/printstyle.css">
     <!--- Nombre del autor --->
     <meta name="autor" content="Esther García Gallego">
@@ -62,8 +62,12 @@
     <!--- Productos --->
     <article>
         <h2>Rotulador lettering</h2>
-        <h4>Tombow</h4>
-        <p class="precio">2,30€</p>
+
+        <div class="flex-info">
+            <h4>Tombow</h4>
+            <p class="precio">2,30€</p>
+        </div>
+
         <div class="article-flex">
             <div class="article-text">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae neque eget risus facilisis
@@ -76,17 +80,17 @@
                     tincidunt ac vestibulum lacus. Duis turpis odio, porta at dictum vel, condimentum a massa. Proin
                     ultrices, tortor vel aliquet pulvinar, turpis est laoreet massa, ut bibendum erat mauris non massa.
                     Suspendisse ut rhoncus dui.</p>
-            </div>
 
-            <div class="img-flex">
-                <div class="contenedor-imagen">
-                    <img src="../images/imagen1.jpg" alt="Una imagen">
-                    <div class="bottom-text"> Apuntes</div>
-                </div>
+                <div class="img-flex">
+                    <figure class="image-container">
+                        <img src="../images/imagen1.jpg" alt="Una imagen">
+                        <figcaption>Apuntes</figcaption>
+                    </figure>
 
-                <div class="contenedor-imagen">
-                    <img src="../images/imagen1.jpg" alt="Una imagen">
-                    <div class="bottom-text"> Apuntes</div>
+                    <figure class="image-container">
+                        <img src="../images/imagen1.jpg" alt="Una imagen">
+                        <figcaption>Apuntes</figcaption>
+                    </figure>
                 </div>
             </div>
         </div>

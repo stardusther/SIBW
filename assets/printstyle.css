@@ -1,7 +1,16 @@
 
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Contenedor principal de los productos y la sidebar */
+.flex-cuerpo{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    justify-content: center;
+    min-height: 400px;
 }
 
 /* ----------------------- Cabecera ----------------------- */
@@ -9,193 +18,83 @@
 #logo{
     visibility: visible;
     display: flex;
+
     border-radius: 50%;
-    background: rgb(93,108,127);
-    background: linear-gradient(115deg, rgba(93,108,127,1) 18%, rgba(118,148,183,1) 54%);
+
+    filter: grayscale(100%);
+    background: rgb(160,154,188);
+    background: linear-gradient(115deg, rgba(160,154,188,1) 50%, rgba(190,185,199,1) 50%);
     color: white;
-    margin: 30% 0% 70% 70%;
-    padding: 17px 18px;
-    font-size: 50px;
-    width: 75px;
-    height: 75px;
-    text-align: center;
-    text-decoration: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+
+    padding: 20px 25px;
+    font-size: 68px;
+
+    width: 100px;
+    height: 100px;
 }
 
 .header-flex{
     flex-direction: row;
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
 }
 
 h1{
+    display: none;
     font-size: 5em;
-    font-family: 'Didact Gothic', sans-serif;
     text-align: center;
 }
 
 header{
-    visibility: hidden;
+    display: flex;
     width: 100%;
-    height: 10em;
+    height: auto;
     text-align: center;
 }
 
 header p{
-    font-family: 'Didact Gothic', sans-serif;
     font-weight: bolder;
     font-size: large;
 }
 
-/* Para crear el efecto máquina de escribir*/
-
-#typed-out {
-    font-family: 'Didact Gothic', sans-serif;
-    font-weight: bold;
-    overflow: hidden;
-    padding-right: 5px;
-    border-right: .15em solid #7694b7;
-    font-size: large;
-    white-space: nowrap;
-    width: 0;
-    animation: typing 2.5s steps(30, end) forwards,
-    blink 1.2s infinite;
-}
-
 .typeoutcontainer {
-    display: inline-block;
+    display: none;
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+/* ----------------------- Navbar ----------------------- */
+
+.flex-menu{
+    display: none;
 }
-
-@keyframes blink {
-    from { border-color: transparent }
-    to { border-color: #7694b7; }
-}
-
-/* ----------------------- Menu principal ----------------------- */
-.flex-menu{ /*FIXME no funciona el sticky*/
-    display: flex;
-    visibility: hidden;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: left;
-    background-color: #7694b7;
-    overflow: auto;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    width: 100%;
-}
-
-/* Los elementos del menú principal*/
-nav a.menu{
-    font-weight: bold;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-
-}
-
-/*.fa-shopping-cart{
-	display: inline-block;
-	color: white;
-	text-align: right;
-	margin-left: 90%;
-	border-color: white;
-	border-style: dashed;
-}
-
-.fa-shopping-cart:hover {
-	opacity: 0.9;
-}*/
-
-/* Los elementos del menú principal al pasar el
-ratón por encima (si no están activos)*/
-nav a.menu:hover:not(.activa){
-    background-color: #90a6c0;
-}
-
-/* Para que la pestaña activa destaque*/
-#activa {
-    background-color: #768ba5;
-}
-
 /* ----------------------- Cuerpo de página ----------------------- */
 
-.flex-cuerpo{
-    width: 100%;
-    justify-content: left;
-    min-height: 400px;
-}
+/* Precio Producto */
+.precio {
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 22px;
 
-.flex-productos{
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-    width: 75%;
+    width: 100px;
+    height: 45px;
+
+    background: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    border-radius: 10px;
     padding: 10px;
 }
 
-.producto { /*FIXME no sé cómo hacer para que se pueda ver bien cuando se pone más de una línea de texto*/
-    /* Add shadows to create the "card" effect */
-    width: 100%;
-    height: 460px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    max-width: 250px;
-    margin: 10px;
-    text-align: center;
-    transition: 0.3s;
+.flex-info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
 }
-
-/* On mouse-over, add a deeper shadow */
-.producto:hover {
-    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
-}
-
-/* Add rounded corners to the top left and the top right corner of the image */
-img {
-    border-radius: 10px 10px 0 0;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.precio {
-    color: black;
-    font-size: 22px;
-}
-
-.producto button{
-    border: none;
-    outline: 0;
-    padding: 15px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-}
-
-.producto button:hover{
-    opacity: 0.7;
-}
-
-article{
-    justify-content: center;
-    text-align: justify;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-
 
 .article-flex{
     display:flex;
@@ -209,148 +108,77 @@ article{
     margin-right: 20px;
 }
 
+/* Título Producto*/
 article h2{
-    font-family: 'Didact Gothic', sans-serif;
     font-weight: bolder;
     font-size: xx-large;
 }
 
+/* Marca Producto */
 article h4 {
-    font-family: 'Didact Gothic', sans-serif;
     font-weight: bolder;
     font-size: x-large;
-    color: black;
 }
 
+/* Imagen Producto */
 .img-flex{
     display: flex;
-    justify-content: revert;
-    flex-direction: column;
-    margin-left: 7%;
-    min-width: 40%;
-}
-
-article img{
-    margin-bottom: 7%;
+    justify-content: space-evenly;
+    flex-direction: row;
     width: 100%;
-    border-radius: 0% 10% 0% 10%;
+    /*border: black solid;*/
 }
 
-.contenedor-imagen{
-    margin: 3%;
-    position: relative;
-}
-
-.bottom-text {
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
-    font-weight: bold;
-}
-/* Si bajamos de 500px se nos stackean los productos en columnas */
-@media (max-width: 500px) {
+@media (min-width: 1000px){
     .flex-container {
         flex-direction: column;
     }
 }
 
-/* --------------- Menu lateral ----------------- */
-.flex-menusocial{
-    visibility: hidden;
+.image-container img {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: inherit;
+    border-radius: 0px 10px;
+    min-width: 200px;
 }
+
+.image-container {
+    position: relative;
+    width: 100%; /*TODO por qué se ve tan pequeño?*/
+    /*border: #3B5998 dashed;*/
+}
+
+.image-container figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: bolder;
+    box-sizing: border-box;
+    border-bottom-left-radius: 10px;
+    width: inherit;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+/*------------------------------- Menu lateral ---------------------------------*/
 
 aside {
-    visibility: hidden;
-    display: flex;
-    float: right;
-    position: relative;
-    font-weight: bold;
-    border-left-color: #90a6c0;
-    border-left-style: solid;
+    display: none;
 }
-
-/* -- ICONOS --*/
-
-/* General */
-.fa {
-    margin: 0 6px 6px 0;
-    padding: 10px;
-    font-size: 15px;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-    transition: transform .2s; /* Animation */
-}
-
-/* Efecto al pasar el ratón por encima */
-.fa:hover {
-    opacity: 0.9;
-    transform: scale(1.2);
-}
-
-/* Facebook */
-.fa-facebook {
-    background: #3B5998;
-    color: white;
-}
-
-/* Twitter */
-.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}
-.fa-instagram {
-    background: #E1306C;
-    color: white;
-}
-
-.fa-print {
-    background: #6e6e6e;
-    color: white;
-}
-
 
 /* ----------------------- Pie de página ----------------------- */
 
 footer{
-    visibility: hidden;
     width: 100%;
     height: 50px;
     margin-top: 3%;
     text-align: center;
     padding: 17px;
     color: white;
-    background-color: #7694b7;
+    background-color: black;
     font-weight: bold;
-}
-
-/* ----------------------- PARA CONTACTO ----------------------- */
-
-#me{
-    width: 20%;
-    height: 20%;
-    border-radius: 50%;
-    float: right;
-    vertical-align: hanging;
-}
-
-#about{
-    justify-content: center;
-    text-align: justify;
-    text-justify: inter-word;
-    margin-left: 35px;
-    margin-right: 35px;
-}
-
-.flex-aboutme{
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    padding: 10px;
 }

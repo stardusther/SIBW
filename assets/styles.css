@@ -4,14 +4,21 @@
 	font-family: Lato, Helvetica, Arial, sans-serif;
 }
 
+body {
+	background: #e1dee9;
+}
+
 /* ----------------------- Cabecera ----------------------- */
 
 #logo{
 	display: flex;
 	border-radius: 50%;
-	background: rgb(93,108,127);
-	background: linear-gradient(115deg, rgba(93,108,127,1) 18%, rgba(118,148,183,1) 54%);
-	color: white;
+
+	background: rgb(160,154,188);
+	background: linear-gradient(115deg, rgba(160,154,188,1) 50%, rgba(190,185,199,1) 50%);
+	color: #e1dee9;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+
 	margin: 75px 30px;
 	padding: 17px 18px;
 	font-size: 50px;
@@ -52,11 +59,12 @@ header p{
 /* Para crear el efecto máquina de escribir*/
 
 #typed-out {
+	margin-top: -90px;
 	font-family: 'Didact Gothic', sans-serif;
 	font-weight: bold;
 	overflow: hidden;
 	padding-right: 5px;
-	border-right: .15em solid #7694b7;
+	border-right: .15em solid #a09abc;
 	font-size: large;
 	white-space: nowrap;
 	width: 0;
@@ -75,7 +83,7 @@ header p{
 
 @keyframes blink {
 	from { border-color: transparent }
-	to { border-color: #7694b7; }
+	to { border-color: #a09abc; }
 }
 
 /* ----------------------- Menu principal ----------------------- */
@@ -84,16 +92,17 @@ header p{
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: left;
-	background-color: #7694b7;
+	background-color: #a09abc;
 	overflow: auto;
 	width: 100%;
+	border-radius: 40px;
 }
 
 /* Los elementos del menú principal*/
 nav a.menu{
 	font-weight: bold;
 	display: block;
-	color: white;
+	color: #e1dee9;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -116,18 +125,19 @@ nav a.menu{
 /* Los elementos del menú principal al pasar el
 ratón por encima (si no están activos)*/
 nav a.menu:hover:not(.activa){
-	background-color: #90a6c0;
+	background-color: #B6A6CA;
 }
 
 /* Para que la pestaña activa destaque*/
 #activa {
-	background-color: #5d6c7f;
+	background-color: #7a709a;
 }
 
 /* ----------------------- Cuerpo de página ----------------------- */
 
 .flex-cuerpo{
 	width: 100%;
+	height: 100%;
 	margin-top: 20px;
 	justify-content: center;
 	min-height: 400px;
@@ -135,12 +145,12 @@ nav a.menu:hover:not(.activa){
 
 .flex-productos{
 	display: flex;
-	flex: 0 0 45%;
-	justify-content: space-between;
+	justify-content: center;
+	/*background: #3c3f48;*/
+	border-radius: 40px;
 	flex-wrap: wrap;
-	width: 73%;
-	border-style: solid;
-	border-color: black;
+	width: 70%;
+	padding: 2%;
 }
 
 .producto img{
@@ -157,9 +167,9 @@ nav a.menu:hover:not(.activa){
 	transition: transform .7s;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 50%;
-	background: grey;
+	background: #a09abc;
 	max-width: 150px;
-	margin: 10px;
+	margin: 20px;
 }
 
 .producto:hover > img{
@@ -227,6 +237,7 @@ article img{
 
 /* --------------- Menu lateral ----------------- */
 .flex-menusocial{
+	margin-top: 10px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -234,17 +245,25 @@ article img{
 }
 
 aside {
-	display: flex;
-	flex-direction: column;
-	margin-top: 10px;
-	margin-left: 15px;
-	width: 23%;
+	width: 30%;
 	float: right;
 	position: relative;
 	font-weight: bold;
-	border-left-color: #90a6c0;
-	border-left-style: solid;
-	min-height: 400px;
+
+	background: #A09ABC;
+	border-radius: 20px;
+	color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+ul {
+	list-style-type: none;
+	text-align: left;
+	margin-right: 10px;
+}
+
+ul li a{
+	color: #e1dee9;
 }
 
 /* -- ICONOS --*/
@@ -298,8 +317,8 @@ footer{
 	margin-top: 3%;
 	text-align: center;
 	padding: 17px;
-	color: white;
-	background-color: #7694b7;
+	color: #e1dee9;
+	background-color: #a09abc;
 	font-weight: bold;
 }
 

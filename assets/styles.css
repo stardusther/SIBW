@@ -9,7 +9,8 @@
 #logo{
 	display: flex;
 	border-radius: 50%;
-	background-color: lightsteelblue;
+	background: rgb(93,108,127);
+	background: linear-gradient(115deg, rgba(93,108,127,1) 18%, rgba(118,148,183,1) 54%);
 	color: white;
 	margin: 75px 30px;
 	padding: 17px 18px;
@@ -78,15 +79,13 @@ header p{
 }
 
 /* ----------------------- Menu principal ----------------------- */
-.flex-menu{ /*FIXME no funciona el sticky*/
+.flex-menu{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: left;
 	background-color: #7694b7;
 	overflow: auto;
-	position: -webkit-sticky; /* Safari */
-	position: sticky;
 	width: 100%;
 }
 
@@ -122,47 +121,49 @@ nav a.menu:hover:not(.activa){
 
 /* Para que la pestaña activa destaque*/
 #activa {
-	background-color: #768ba5;
+	background-color: #5d6c7f;
 }
 
 /* ----------------------- Cuerpo de página ----------------------- */
 
 .flex-cuerpo{
 	width: 100%;
-	justify-content: left;
+	margin-top: 20px;
+	justify-content: center;
 	min-height: 400px;
 }
 
 .flex-productos{
 	display: flex;
-	justify-content: left;
+	flex: 0 0 45%;
+	justify-content: space-between;
 	flex-wrap: wrap;
-	width: 75%;
-	padding: 10px;
+	width: 73%;
+	border-style: solid;
+	border-color: black;
 }
 
-.producto { /*FIXME no sé cómo hacer para que se pueda ver bien cuando se pone más de una línea de texto*/
-	/* Add shadows to create the "card" effect */
+.producto img{
 	width: 100%;
-	height: 460px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	max-width: 250px;
-	margin: 10px;
-	text-align: center;
-	transition: 0.3s;
- }
-
-/* On mouse-over, add a deeper shadow */
-.producto:hover {
-	box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+	transition: 0.5s;
 }
 
-/* Add rounded corners to the top left and the top right corner of the image */
-img {
-	border-radius: 10px 10px 0 0;
-	max-width: 100%;
-	height: auto;
-	object-fit: cover;
+.producto:hover {
+	transform: scale(1.08);
+}
+
+.producto {
+	cursor: pointer;
+	transition: transform .7s;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+	background: grey;
+	max-width: 150px;
+	margin: 10px;
+}
+
+.producto:hover > img{
+	transform: scale(1.08);
 }
 
 .precio {
@@ -170,33 +171,58 @@ img {
 	font-size: 22px;
 }
 
-.producto button{
-  border: none;
-  outline: 0;
-  padding: 15px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-  
-.producto button:hover{
-	opacity: 0.7;
+
+/*-----------------------------------*/
+
+.article-flex{
+	display:flex;
+	justify-content: center;
+	flex-direction: row;
 }
 
 article{
-	justify-content: center;
 	text-align: justify;
 	margin-left: 20px;
 	margin-right: 20px;
 }
-/* Si bajamos de 500px se nos stackean los productos en columnas */
-@media (max-width: 500px) {
-	.flex-container {
-		flex-direction: column;
-	}
+
+article h2{
+	font-family: 'Didact Gothic', sans-serif;
+	font-weight: bolder;
+	font-size: xx-large;
+}
+
+article h4 {
+	font-family: 'Didact Gothic', sans-serif;
+	font-weight: bolder;
+	font-size: x-large;
+	color: #3B5998;
+}
+
+.img-flex{
+	display: flex;
+	justify-content: revert;
+	flex-direction: column;
+	margin-left: 7%;
+	min-width: 40%;
+}
+
+article img{
+	margin-bottom: 7%;
+	max-width: 100%;
+	border-radius: 0% 10% 0% 10%;
+}
+
+.contenedor-imagen{
+	margin: 3%;
+	position: relative;
+}
+
+.bottom-text {
+	position: absolute;
+	bottom: 20px;
+	right: 10px;
+	font-weight: bold;
 }
 
 /* --------------- Menu lateral ----------------- */
@@ -212,15 +238,13 @@ aside {
 	flex-direction: column;
 	margin-top: 10px;
 	margin-left: 15px;
-	height: 100%;
-	width: 30%;
-	padding-left: 15px;
-	padding-right: 15px;
+	width: 23%;
 	float: right;
 	position: relative;
 	font-weight: bold;
 	border-left-color: #90a6c0;
 	border-left-style: solid;
+	min-height: 400px;
 }
 
 /* -- ICONOS --*/

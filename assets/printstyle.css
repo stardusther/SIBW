@@ -1,19 +1,19 @@
 
 * {
     box-sizing: border-box;
-    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 /* ----------------------- Cabecera ----------------------- */
 
 #logo{
     visibility: visible;
-    float: center;
     display: flex;
     border-radius: 50%;
-    background-color: lightsteelblue;
+    background: rgb(93,108,127);
+    background: linear-gradient(115deg, rgba(93,108,127,1) 18%, rgba(118,148,183,1) 54%);
     color: white;
-    margin: 100px 0px 0px 0px;
+    margin: 30% 0% 70% 70%;
     padding: 17px 18px;
     font-size: 50px;
     width: 75px;
@@ -26,7 +26,7 @@
     flex-direction: row;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
 }
 
@@ -168,7 +168,7 @@ img {
 }
 
 .precio {
-    color: grey;
+    color: black;
     font-size: 22px;
 }
 
@@ -193,6 +193,59 @@ article{
     text-align: justify;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+
+
+.article-flex{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+article{
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+article h2{
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+article h4 {
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: bolder;
+    font-size: x-large;
+    color: black;
+}
+
+.img-flex{
+    display: flex;
+    justify-content: revert;
+    flex-direction: column;
+    margin-left: 7%;
+    min-width: 40%;
+}
+
+article img{
+    margin-bottom: 7%;
+    width: 100%;
+    border-radius: 0% 10% 0% 10%;
+}
+
+.contenedor-imagen{
+    margin: 3%;
+    position: relative;
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    font-weight: bold;
 }
 /* Si bajamos de 500px se nos stackean los productos en columnas */
 @media (max-width: 500px) {

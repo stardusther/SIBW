@@ -177,11 +177,25 @@ nav a.menu:hover:not(.activa){
 }
 
 .precio {
-	color: grey;
+	color: white;
+	font-weight: bolder;
+	text-align: center;
 	font-size: 22px;
+	border-radius: 10px;
+	padding: 10px;
+	width: 100px;
+	height: 45px;
+	background: #a09abc;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin-left: 10px;
 }
 
-
+.flex-info{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+}
 /*-----------------------------------*/
 
 .article-flex{
@@ -206,7 +220,7 @@ article h4 {
 	font-family: 'Didact Gothic', sans-serif;
 	font-weight: bolder;
 	font-size: x-large;
-	color: #3B5998;
+	color: #7a709a;
 }
 
 .img-flex{
@@ -219,7 +233,7 @@ article h4 {
 
 article img{
 	margin-bottom: 7%;
-	max-width: 100%;
+	max-width: 70%;
 	border-radius: 0% 10% 0% 10%;
 }
 
@@ -229,10 +243,18 @@ article img{
 }
 
 .bottom-text {
-	position: absolute;
+	position: relative;
+	color: white;
 	bottom: 20px;
 	right: 10px;
 	font-weight: bold;
+	background: #a09abc;
+	height: 30px;
+	width: 80px;
+	padding-top: 5px;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* --------------- Menu lateral ----------------- */

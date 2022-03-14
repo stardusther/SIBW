@@ -2,8 +2,6 @@
 .flex-productos{
     display: flex;
     justify-content: center;
-    /*background: #3c3f48;*/
-    border-radius: 40px;
     flex-wrap: wrap;
     width: 75%;
     padding: 2%;

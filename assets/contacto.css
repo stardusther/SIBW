@@ -1,12 +1,12 @@
 /* ----------------------- PARA CONTACTO ----------------------- */
 
 #me{
-    min-width: 40%;
-    max-width: 50%;
+    min-width: 200px;
+    max-width: 300px;
     height: 20%;
     border-radius: 50%;
     float: right;
-    vertical-align: hanging;
+    vertical-align: middle;
 }
 
 #about{

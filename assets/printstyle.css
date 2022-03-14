@@ -82,7 +82,7 @@ header p{
     width: 100px;
     height: 45px;
 
-    background: black;
+    background: rgb(71, 71, 71);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-left: 10px;
     border-radius: 10px;
@@ -100,6 +100,7 @@ header p{
     display:flex;
     justify-content: center;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 article{
@@ -124,9 +125,8 @@ article h4 {
 /* Imagen Producto */
 .img-flex{
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    flex-direction: row;
     margin-left: 30px;
     margin-top: 1%;
     margin-bottom: 10px;
@@ -138,11 +138,12 @@ article h4 {
     width: 100%;
     border-radius: 0px 10px;
     min-width: 200px;
+    max-width: 500px;
 }
 
 .image-container {
     position: relative;
-    max-width: 100%; /*TODO por qué se ve tan pequeño?*/
+    max-width: 100%;
 }
 
 .image-container figcaption {
@@ -179,6 +180,6 @@ footer{
     text-align: center;
     padding: 17px;
     color: white;
-    background-color: black;
+    background-color: rgb(71, 71, 71);
     font-weight: bold;
 }

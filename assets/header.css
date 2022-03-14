@@ -2,7 +2,7 @@
 
 #logo{
     display: flex;
-    border-radius: 50%;
+    border-radius: 20px;
 
     background: rgb(160,154,188);
     background: linear-gradient(115deg, rgba(160,154,188,1) 50%, rgba(190,185,199,1) 50%);
@@ -50,6 +50,7 @@ header p{
 
 #typed-out {
     margin-top: -90px;
+    margin-left: 10%;
     font-family: 'Didact Gothic', sans-serif;
     font-weight: bold;
     overflow: hidden;

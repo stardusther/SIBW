@@ -1,6 +1,7 @@
 /* --------------- Menu lateral ----------------- */
 aside {
-    width: 30%;
+    max-width: 250px;
+    min-width: 200px;
     float: right;
     font-weight: bold;
 

@@ -24,6 +24,12 @@
     margin: 10px;
 }
 
+#form{
+    border: #7a709a dashed;
+    border-radius: 40px;
+    padding: 30px
+}
+
 .comentario{
     padding: 10px;
     background: #a09abc;
@@ -56,31 +62,36 @@
     display: block;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
+
 }
 
 #fname{
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #femail{
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #fcomment{
     display: flex;
-    width: 50%;
+    width: 400px;
     height: 100px;
     align-content: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #commentButton{
-    margin: 10px;
-    padding:10px;
+    padding: 10px;
     float: right;
+    background: #7a709a;
+    border-radius: 10px;
+    margin-top: 10px;
+
+    color: white;
+    font-weight: bolder;
+}
+
+#commentButton:hover{
+    opacity: 0.7;
 }

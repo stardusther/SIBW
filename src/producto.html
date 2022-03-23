@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../assets/general.css">
     <link rel="stylesheet" href="../assets/footer.css">
     <link rel="stylesheet" href="../assets/productinfo.css">
+    <link rel="stylesheet" href="../assets/comments.css">
+    <!--- Link a las hojas de CSS --->
+    <script src="comments.js"></script>
     <!--- Nombre del autor --->
     <meta name="autor" content="Esther García Gallego">
     <!-- Librería de iconos -->
@@ -100,6 +103,33 @@
             <li><a href=#> Enlace de interés </a></li>
         </ul>
     </aside>
+</div>
+
+<div id="flex-boton">
+    <button id="toggleComments" onclick="showComments()"> <i class="fa fa-comment" aria-hidden="true"></i>Mostrar comentarios</button>
+</div>
+
+<div id="flex-comentarios">
+     <!---Comentarios publicados--->
+    <div id="commentSection">
+        <div class="comentario">
+            <p id="nombre">Juan Pérez Díaz <span id="fecha">    23/03/2022, 23:18:56</span></p>
+            <p id="texto"> Muy buen rotulador, aunque no estaría mal que les bajaran el precio...</p>
+        </div>
+    </div>
+     <!--- FORMULARIO: Publicar un nuevo comentario--->
+    <form id="form" action="javascript:void('');" onsubmit="verificar()" class="add_comment">
+        <label>Nombre
+            <input id="fname" type="string" name="name" placeholder="John Doe">
+        </label><br>
+        <label>email
+            <input id="femail" type="email" name="email" placeholder="example@gmail.com">
+        </label><br>
+        <label>Comentario
+            <textarea id="fcomment" name="comment"  onkeyup="checkWords()"></textarea>
+        </label>
+        <input id="commentButton" type="submit" value="Comentar">
+    </form>
 </div>
 
 <!--- Pie de página --->

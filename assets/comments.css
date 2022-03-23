@@ -1,0 +1,86 @@
+#commentSection{
+    display: block;
+}
+
+#flex-boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#toggleComments{
+    display: block;
+    font-weight: bold;
+    padding: 10px;
+    border-style: dashed;
+    border-radius: 20px;
+}
+
+#flex-comentarios{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.comentario{
+    padding: 10px;
+    background: #a09abc;
+    border-radius: 20px;
+    margin: 10px
+}
+
+#nombre{
+    padding-left: 20px;
+    color: white;
+    font-weight: bolder;
+}
+
+#fecha{
+    text-align: end;
+    color: ghostwhite;
+    font-style: italic;
+    font-weight: normal;
+}
+
+#texto{
+    padding-left: 40px;
+}
+
+.fa-comment{
+    color: #a09abc;
+}
+
+#form{
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#fname{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#femail{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fcomment{
+    display: flex;
+    width: 50%;
+    height: 100px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#commentButton{
+    margin: 10px;
+    padding:10px;
+    float: right;
+}

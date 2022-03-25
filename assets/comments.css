@@ -2,29 +2,56 @@
     display: block;
 }
 
+/* Botón que muestra/oculta los comentarios*/
 #flex-boton{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+.fa-comment{
+    color: #a09abc;
+}
+
 #toggleComments{
     display: block;
-    font-weight: bold;
+    
     padding: 10px;
     border-style: dashed;
     border-radius: 20px;
+
+    background-color: white;
+
+    color: #7a709a;
+    font-weight: bold;
+    font-size: large;
 }
 
+#toggleComments:hover{
+    background-color: #a09abc;
+    color: white;
+    border-style: dashed #a09abc;
+}
+
+
+/* Contenedor de los comentarios publicados*/
+
 #flex-comentarios{
-    display: flex;
+    display: none;
     justify-content: center;
     margin: 10px;
     flex-direction: column;
     margin: 10px;
 }
 
-#form{
+#commentSection{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* Formulario para enviar un comentario*/
+.add_comment{
+    display: block;
     border: #7a709a dashed;
     border-radius: 40px;
     padding: 30px
@@ -37,27 +64,24 @@
     margin: 10px
 }
 
-#nombre{
+.nombre{
     padding-left: 20px;
     color: white;
     font-weight: bolder;
 }
 
-#fecha{
+.fecha{
     text-align: end;
     color: ghostwhite;
     font-style: italic;
     font-weight: normal;
 }
 
-#texto{
+.texto{
     padding-left: 40px;
 }
 
-.fa-comment{
-    color: #a09abc;
-}
-
+/* Formulario para enviar un comentario*/
 #form{
     display: block;
     flex-direction: column;
@@ -68,10 +92,12 @@
 
 #fname{
     display: flex;
+    height: 30px;
 }
 
 #femail{
     display: flex;
+    height: 30px;
 }
 
 #fcomment{
@@ -95,3 +121,42 @@
 #commentButton:hover{
     opacity: 0.7;
 }
+
+/*Like button*/
+
+.animate__heartBeat{
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    overflow: hidden;
+    /*animation: like .4s ease;*/
+}
+
+
+.liked {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    color: #5b53a2;
+    animation: heartBeat .4s ease;
+}
+
+/*
+@keyframes like {
+    0% {
+      transform: scale(.8);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  */

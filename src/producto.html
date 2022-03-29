@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="../assets/footer.css">
     <link rel="stylesheet" href="../assets/productinfo.css">
     <link rel="stylesheet" href="../assets/comments.css">
-    <!--- Librería de animaciones --->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!--- Link a la hojas de script --->
+    <script src="comments.js"></script>
     <!--- Nombre del autor --->
     <meta name="autor" content="Esther García Gallego">
     <!-- Librería de iconos -->
@@ -115,24 +115,24 @@
         <div class="comentario">
             <p class="nombre">Juan Pérez Díaz <span class="fecha">23/03/2022, 23:18:56</span></p>
             <p class="texto"> Muy buen rotulador, aunque no estaría mal que les bajaran el precio...</p>
-            <i class="fa-solid fa-heart animate__heartBeat" onclick="liked()"></i>
+            <i class="fa-solid fa-heart"></i>
         </div>
         <div class="comentario">
             <p class="nombre">Rosa Mª Gallego Calvente <span class="fecha">24/03/2022, 12:09:33</span></p>
             <p class="texto"> Producto horrible, me lo dejé abierto un par de horas y se secó entero. No lo volvería a comprar por nada del mundo</p>
-            <i class="fa-solid fa-heart animate__heartBeat" onclick="liked()"></i>
+            <i class="fa-solid fa-heart animate__heartBeat"></i>
         </div>
     </div>
      <!--- FORMULARIO: Publicar un nuevo comentario--->
     <form id="form" action="javascript:void('');" class="add_comment">
         <label>Nombre
-            <input id="fname" type="string" name="fname" onkeyup="censor(document.getElementById('fname'))" placeholder="John Doe">
+            <input id="fname" type="string" name="fname"  onkeyup="censor(document.getElementById('fname'))" placeholder="John Doe">
         </label><br>
         <label>Email
             <input id="femail" type="email" name="femail" placeholder="example@gmail.com">
         </label><br>
         <label>Comentario
-            <textarea id="fcomment" onkeyup="censor(document.getElementById('fcomment'))" name="fcomment" placeholder="Escribe tu comentario aquí..."></textarea>
+            <textarea id="fcomment" name="fcomment" onkeyup="censor(document.getElementById('fcomment'))"  placeholder="Escribe tu comentario aquí..."></textarea>
         </label>
         <input id="commentButton" type="submit" value="Publicar">
     </form>
@@ -140,10 +140,6 @@
 
 <!--- Pie de página --->
 <footer> Copyright &copy; 2022 Esther García Gallego</footer>
-
-
-<!--- Link a la hojas de script --->
-<script src="comments.js"></script>
 </body>
 
 </html>

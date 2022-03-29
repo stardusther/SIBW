@@ -1,12 +1,13 @@
 
-// Variables ----------------------------------------------------------
-
-let showButton = document.getElementById("toggleComments"); // Botón que muestra los comentarios anteriores
-let commentSection = document.getElementById("commentSection"); // Sección de comentarios (comentarios anteriores)
-let formDiv = document.getElementById("flex-comentarios");
-let formulario = document.getElementById("form"); // El formulario de los datos del usuario
-let sendButton = document.getElementById('commentButton'); // Botón que publica el comentario
-let likeButton = document.getElementById('animate__heartBeat'); // Botón de corazón
+// Declaración de variables ----------------------------------------------------------
+let showButton = null;
+let commentSection = null;
+let commentDiv = null;
+let formulario = null;
+let sendButton = null;
+let likeButton = null;
+let fname = null;
+let fcomment = null;
 
 
 // Inicializar ----------------------------------------------------------
@@ -14,40 +15,69 @@ let likeButton = document.getElementById('animate__heartBeat'); // Botón de cor
 window.onload = init;
 
 function init() {
+    /*  ----------- Variables inicializadas  ----------- */
+    // Botón que muestra los comentarios anteriores
+    showButton = document.getElementById("toggleComments");
+    // Sección de comentarios (comentarios anteriores)
+    commentSection = document.getElementById("commentSection");
+    // Contenedor de los comentarios y el form
+    commentDiv = document.getElementById("flex-comentarios");
+    // El formulario de los datos del usuario
+    formulario = document.getElementById("form");
+    // Nombre que introduce el usuario en el formulario
+    fname = document.forms["form"]["fname"];
+    // Comentario que introduce el usuario
+    fcomment = document.forms["form"]["fcomment"];
+    // Botón que publica el comentario
+    sendButton = document.getElementById('commentButton');
+    // Botón de corazón
+    likeButton = document.getElementById('fa-heart');
+
+    // Probando
+    commentDiv.style.display = "none";
+    showButton.textContent = "Mostrar comentarios";
+
     // Mostrar/Ocultar comentarios anteriores
     showButton.addEventListener("click", showComments);
+
     // Comprobar palabras que escribe el usuario
-    formulario.addEventListener("keyup", censor(document.getElementById('fcomment')));
-    formulario.addEventListener("keyup", censor(document.getElementById('fname')));
+    fcomment.addEventListener("keyup", censor(fcomment));
+    fname.addEventListener("keyup", censor(fname));
+
     // Verificar y publicar comentario
     formulario.addEventListener("submit", verificar);
+
+    // Dar like (no funciona)
     likeButton.addEventListener("click", liked);
 }
 
 // liked
 
 function liked(){
-    likebutton.toggleClass();
+    if(likeButton.classList.contains("liked"))
+        likeButton.classList.remove( "liked");
+    else
+        likeButton.classList.add( "liked");
 }
 
 // Mostrar comentarios --------------------------------------------------
 
 function showComments() {
-    if (formDiv.style.display === "none") {
-        formDiv.style.display = "flex";
+    if (commentDiv.style.display === "none") {
+        commentDiv.style.display = "flex";
         showButton.textContent = "Ocultar comentarios";
     } else {
-        formDiv.style.display = "none";
+        commentDiv.style.display = "none";
         showButton.textContent = "Mostrar comentarios";
     }
 }
 
 // Censurar palabras prohibidas --------------------------------------------------
 
-function censor (palabra){
-    //var palabra = document.getElementById('fcomment');
-    let banned = ['coño', 'puta', 'cabrón', 'polla', 'joder', 'imbécil']; 
-    for(var aux of banned){
+function censor (palabra){ // Se podría hacer con un regex
+    let banned = ['coño', 'puta', 'cabrón', 'polla', 'joder', 'imbécil', 'follar', 'zorra', 'subnormal'];
+
+    for(var aux of banned){ // que ponga tantos * como letras tiene la palabra
         palabra.value = palabra.value.replace(aux, "*".repeat(aux.length));
     }
 }
@@ -72,6 +102,7 @@ function verificar() {
         return (false);
     }
 
+    // Tras las comprobaciones, publicamos el comentario
     publicarComentario();
 
 }
@@ -99,7 +130,7 @@ function publicarComentario() {
     nombreDiv.append(nombre, fechaDiv);
 
     let heart = document.createElement('i');
-    heart.className = "fa-solid fa-heart animate__heartBeat";
+    heart.className = "fa-solid fa-heart";
 
     const textbox = document.createElement('div');
     textbox.innerHTML = texto;

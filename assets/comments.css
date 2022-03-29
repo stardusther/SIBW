@@ -124,7 +124,7 @@
 
 /*Like button*/
 
-.animate__heartBeat{
+.fa-heart {
     position: relative;
     float: right;
     margin-right: 10px;
@@ -142,11 +142,10 @@
     margin-right: 10px;
     font-size: 30px;
     cursor: pointer;
-    overflow: hidden;
     color: #5b53a2;
-    animation: heartBeat .4s ease;
+    overflow: hidden;
+    /*animation: like .4s ease;*/
 }
-
 /*
 @keyframes like {
     0% {

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--- Título de la pestaña --->
+    <title> artsy </title>
+    <!--- Para el responsive design --->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- Formato de caracteres --->
+    <meta charset="UTF-8">
+    <!--- Link a las hojas de CSS --->
+    <link rel="stylesheet" href="../assets/header.css">
+    <link rel="stylesheet" href="../assets/sidebar.css">
+    <link rel="stylesheet" href="../assets/navbar.css">
+    <link rel="stylesheet" href="../assets/general.css">
+    <link rel="stylesheet" href="../assets/footer.css">
+    <link rel="stylesheet" href="../assets/product.css">
+
+    <!--- Nombre del autor --->
+    <meta name="autor" content="Esther García Gallego">
+    <!-- Librería de iconos -->
+    <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>
+    <!--- google fonts--->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!------------------------------- Contenedor del cuerpo de la página ------------------------------->
+<header>
+    <div class="header-flex">
+        <i id="logo" class="fas fa-brush"></i>
+        <h1> artsy </h1>
+    </div>
+
+    <div class="typeoutcontainer">
+        <div id="typed-out"> Todo lo que necesitas para hacer arte</div>
+    </div>
+    <!--- Menu principal --->
+    <nav class="flex-menu">
+        <a class="menu" id="activa" href="portada.html"> Home </a>
+        <a class="menu" href="contacto.html"> Quiénes somos </a>
+        <a class="menu" href="contacto.html"> Contacto </a>
+        <a class="menu" href="contacto.html"> Blog </a>
+        <!--i class='fas fa-shopping-cart'></i-->
+    </nav>
+</header>
+
+
+<div class="flex-cuerpo">
+    
+    <!--- Productos --->
+    <section class="flex-productos">
+        <!-- Producto 1 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 7 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 8 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+        <!-- Producto 9 -->
+        <div class="producto">
+            <img onclick="window.location.href = 'producto.html';" src="../images/pencil.png" alt="Lápiz">
+        </div>
+
+    </section>
+
+    <!--- Barra lateral --->
+    <aside>
+        <span class="flex-menusocial">
+            <!-- Iconos sociales --->
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+        </span>
+    </aside>
+</div>
+
+
+
+<!--- Pie de página --->
+<footer> Copyright &copy; 2022 Esther García Gallego</footer>
+
+
+</body>
+
+</html>

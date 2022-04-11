@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--- Título de la pestaña --->
+    <title> artsy </title>
+    <!--- Para el responsive design --->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- Formato de caracteres --->
+    <meta charset="UTF-8">
+    <!--- Link a las hojas de CSS --->
+    <link rel="stylesheet" href="../assets/header.css">
+    <link rel="stylesheet" href="../assets/sidebar.css">
+    <link rel="stylesheet" href="../assets/navbar.css">
+    <link rel="stylesheet" href="../assets/general.css">
+    <link rel="stylesheet" href="../assets/footer.css">
+    <link rel="stylesheet" href="../assets/productinfo.css">
+    <!--- Nombre del autor --->
+    <meta name="autor" content="Esther García Gallego">
+    <!-- Librería de iconos -->
+    <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>
+    <!--- google fonts--->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!------------------------------- Contenedor del cuerpo de la página ------------------------------->
+<header>
+    <div class="header-flex">
+        <i id="logo" class="fas fa-brush"></i>
+        <h1> artsy </h1>
+    </div>
+
+    <div class="typeoutcontainer">
+        <div id="typed-out"> Todo lo que necesitas para hacer arte</div>
+    </div>
+    <!--- Menu principal --->
+    <nav class="flex-menu">
+        <a class="menu" id="activa" href="portada.html"> Home </a>
+        <a class="menu" href="contacto.html"> Quiénes somos </a>
+        <a class="menu" href="contacto.html"> Contacto </a>
+        <a class="menu" href="contacto.html"> Blog </a>
+        <!--i class='fas fa-shopping-cart'></i-->
+    </nav>
+</header>
+
+<div class="flex-cuerpo">
+
+    <!--- Productos --->
+    <article>
+        <h2>Rotulador lettering</h2>
+
+        <div class="flex-info">
+            <h4>Tombow</h4>
+            <p class="precio">2,30€</p>
+        </div>
+
+        <div class="article-flex">
+            <div class="article-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae neque eget risus facilisis
+                    imperdiet non in elit. Phasellus euismod nunc ut laoreet rutrum. Vestibulum pretium viverra neque
+                    mollis volutpat. Nullam quis est nec enim viverra sodales. Ut nec lacus lacinia, pellentesque mi et,
+                    mattis quam. Integer in nisl velit. Vestibulum ut ornare ex, non vestibulum ligula. Curabitur
+                    suscipit sem et rutrum rhoncus.</p>
+                <p>Vivamus laoreet elit eu massa dapibus fringilla. Proin sit amet erat viverra, porttitor diam nec,
+                    bibendum sapien. Vestibulum ullamcorper placerat elementum. Suspendisse a erat at ipsum euismod
+                    tincidunt ac vestibulum lacus. Duis turpis odio, porta at dictum vel, condimentum a massa. Proin
+                    ultrices, tortor vel aliquet pulvinar, turpis est laoreet massa, ut bibendum erat mauris non massa.
+                    Suspendisse ut rhoncus dui.</p>
+            </div>
+        </div>
+
+        <div class="img-flex">
+            <figure class="image-container">
+                <img src="../images/imagen1.jpg" alt="Una imagen">
+                <figcaption>Apuntes</figcaption>
+            </figure>
+
+            <figure class="image-container">
+                <img src="../images/imagen1.jpg" alt="Una imagen">
+                <figcaption>Apuntes</figcaption>
+            </figure>
+        </div>
+    </article>
+
+    <!--- Barra lateral --->
+    <aside>
+        <span class="flex-menusocial">
+            <!-- Iconos sociales --->
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a href="producto_imprimir.html" class="fa fa-print"></a>
+        </span>
+        <ul>
+            <li><a href=#> Enlace de interés </a></li>
+            <li><a href=#> Enlace de interés </a></li>
+            <li><a href=#> Enlace de interés </a></li>
+        </ul>
+    </aside>
+</div>
+
+<!--- Pie de página --->
+<footer> Copyright &copy; 2022 Esther García Gallego</footer>
+
+</body>
+
+</html>

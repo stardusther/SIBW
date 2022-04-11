@@ -1,0 +1,47 @@
+/* ----------------------- Menu principal ----------------------- */
+
+.flex-menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    background-color: #a09abc;
+    overflow: auto;
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* Texto del menú principal*/
+nav a.menu{
+    font-weight: bold;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+/*.fa-shopping-cart{
+	display: inline-block;
+	color: white;
+	text-align: right;
+	margin-left: 90%;
+	border-color: white;
+	border-style: dashed;
+}
+
+.fa-shopping-cart:hover {
+	opacity: 0.9;
+}*/
+
+/* Los elementos del menú principal al pasar el
+ratón por encima (si no están activos)*/
+nav a.menu:hover:not(.activa){
+    background-color: #B6A6CA;
+}
+
+/* Para que la pestaña activa destaque*/
+#activa {
+    background-color: #7a709a;
+}

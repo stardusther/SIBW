@@ -1,0 +1,91 @@
+{% extends "base.html"%}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../assets/productinfo.css">
+    <link rel="stylesheet" href="../assets/comments.css">
+{% endblock %}
+
+{% block cuerpo %}
+    <div class="flex-cuerpo">
+
+        <!--- Productos --->
+        <article>
+            <h2>{{nombre}}</h2>
+
+            <div class="flex-info">
+                <h4>{{marca}}</h4>
+                <p class="precio">{{precio}}€</p>
+            </div>
+
+            <div class="article-flex">
+                <div class="article-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae neque eget risus facilisis
+                        imperdiet non in elit. Phasellus euismod nunc ut laoreet rutrum. Vestibulum pretium viverra neque
+                        mollis volutpat. Nullam quis est nec enim viverra sodales. Ut nec lacus lacinia, pellentesque mi et,
+                        mattis quam. Integer in nisl velit. Vestibulum ut ornare ex, non vestibulum ligula. Curabitur
+                        suscipit sem et rutrum rhoncus.</p>
+                    <p>Vivamus laoreet elit eu massa dapibus fringilla. Proin sit amet erat viverra, porttitor diam nec,
+                        bibendum sapien. Vestibulum ullamcorper placerat elementum. Suspendisse a erat at ipsum euismod
+                        tincidunt ac vestibulum lacus. Duis turpis odio, porta at dictum vel, condimentum a massa. Proin
+                        ultrices, tortor vel aliquet pulvinar, turpis est laoreet massa, ut bibendum erat mauris non massa.
+                        Suspendisse ut rhoncus dui.</p>
+                </div>
+            </div>
+
+            <div class="img-flex">
+                <figure class="image-container">
+                    <img src="../images/imagen1.jpg" alt="Una imagen">
+                    <figcaption>Apuntes</figcaption>
+                </figure>
+
+                <figure class="image-container">
+                    <img src="../images/imagen1.jpg" alt="Una imagen">
+                    <figcaption>Apuntes</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <!--- Barra lateral --->
+        {{ parent () }}
+    </div>
+
+    <div id="flex-boton">
+        <button id="toggleComments">Mostrar comentarios</button>
+    </div>
+
+    <div id="flex-comentarios">
+        <!---Comentarios publicados--->
+        <div id="commentSection">
+            <div class="comentario">
+                <p class="nombre">Juan Pérez Díaz <span class="fecha">23/03/2022, 23:18:56</span></p>
+                <p class="texto"> Muy buen rotulador, aunque no estaría mal que les bajaran el precio...</p>
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="comentario">
+                <p class="nombre">Rosa Mª Gallego Calvente <span class="fecha">24/03/2022, 12:09:33</span></p>
+                <p class="texto"> Producto horrible, me lo dejé abierto un par de horas y se secó entero. No lo volvería a comprar por nada del mundo</p>
+                <i class="fa-solid fa-heart animate__heartBeat"></i>
+            </div>
+        </div>
+        <!--- FORMULARIO: Publicar un nuevo comentario--->
+        <form id="form" action="javascript:void('');" class="add_comment">
+            <label>Nombre
+                <input id="fname" type="string" name="fname"  onkeyup="censor(document.getElementById('fname'))" placeholder="John Doe">
+            </label><br>
+            <label>Email
+                <input id="femail" type="email" name="femail" placeholder="example@gmail.com">
+            </label><br>
+            <label>Comentario
+                <textarea id="fcomment" name="fcomment" onkeyup="censor(document.getElementById('fcomment'))"  placeholder="Escribe tu comentario aquí..."></textarea>
+            </label>
+            <input id="commentButton" type="submit" value="Publicar">
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block socials %}
+    {{ parent () }}
+    <a href="producto_imprimir.php" class="fa fa-print"></a>
+{%endblock %}

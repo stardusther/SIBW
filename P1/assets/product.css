@@ -1,0 +1,33 @@
+/* Contenedor de los productos */
+.flex-productos{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 75%;
+    padding: 2%;
+}
+
+/* Imagen pequeña del producto */
+.producto img{
+    width: 100%;
+    transition: 0.5s;
+}
+
+.producto:hover {
+    transform: scale(1.08);
+}
+
+/* El producto en sí*/
+.producto {
+    cursor: pointer;
+    transition: transform .7s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    background: #a09abc;
+    max-width: 150px;
+    margin: 20px;
+}
+
+.producto:hover > img{
+    transform: scale(1.08);
+}

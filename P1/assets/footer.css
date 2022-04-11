@@ -1,0 +1,12 @@
+/* ----------------------- Pie de página ----------------------- */
+
+footer{
+    width: 100%;
+    height: 50px;
+    margin-top: 3%;
+    text-align: center;
+    padding: 17px;
+    color: white;
+    background-color: #a09abc;
+    font-weight: bold;
+}

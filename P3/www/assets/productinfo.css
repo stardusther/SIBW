@@ -1,0 +1,88 @@
+/* ----------------------- Cuerpo de página ----------------------- */
+
+/* Precio Producto */
+.precio {
+	color: white;
+	font-weight: bolder;
+	text-align: center;
+	font-size: 22px;
+
+	width: 100px;
+	height: 45px;
+
+	background: #a09abc;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin-left: 10px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.flex-info{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+	margin-left: 100px;
+}
+
+.article-flex{
+	display:flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+}
+
+article{
+	text-align: justify;
+	margin-left: 2%;
+}
+
+/* Título Producto*/
+article h2{
+	font-family: 'Didact Gothic', sans-serif;
+	font-weight: bolder;
+	font-size: xx-large;
+}
+
+/* Marca Producto */
+article h4 {
+	font-family: 'Didact Gothic', sans-serif;
+	font-weight: bolder;
+	font-size: x-large;
+	color: #7a709a;
+}
+
+/* Imagen Producto */
+.img-flex{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	margin-top: 1%;
+}
+
+
+.image-container img {
+	width: 100%;
+	border-radius: 0px 10px;
+}
+
+.image-container {
+	position: relative;
+}
+
+.image-container figcaption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-weight: bolder;
+	box-sizing: border-box;
+	border-bottom-left-radius: 10px;
+	width: 100%;
+	padding: 15px;
+	color: white;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+

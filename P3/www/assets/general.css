@@ -1,0 +1,27 @@
+
+* {
+    box-sizing: border-box;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: #e1dee9;
+    margin: 0;
+    
+}
+
+/* Contenedor principal de los productos y la sidebar */
+.flex-cuerpo{
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 700px) {
+    .flex-menu, .article-flex, .img-flex, .flex-cuerpo {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }

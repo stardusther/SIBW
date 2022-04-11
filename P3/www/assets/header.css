@@ -1,0 +1,78 @@
+/* ----------------------- Cabecera ----------------------- */
+
+#logo{
+    display: flex;
+    border-radius: 50%;
+
+    background: rgb(160,154,188);
+    background: linear-gradient(115deg, rgba(160,154,188,1) 50%, rgba(190,185,199,1) 50%);
+    color: #e1dee9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+
+    margin: 75px 30px;
+    padding: 17px 19px;
+    font-size: 50px;
+
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header-flex{
+    flex-direction: row;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+h1{
+    font-size: 5em;
+    font-family: 'Didact Gothic', sans-serif;
+    text-align: center;
+}
+
+header{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+header p{
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: bolder;
+    font-size: large;
+}
+
+/* Para crear el efecto máquina de escribir*/
+
+#typed-out {
+    margin-top: -90px;
+    margin-left: 10%;
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: bold;
+    overflow: hidden;
+    padding-right: 5px;
+    border-right: .15em solid #a09abc;
+    font-size: large;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2.5s steps(30, end) forwards,
+    blink 1.2s infinite;
+}
+
+.typeoutcontainer {
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from { border-color: transparent }
+    to { border-color: #a09abc; }
+}

@@ -1,12 +1,13 @@
 <?php
 
+  header('Content-type: text/html; charset=utf-8');
+   
 # Función para conectar con la base de datos ------------------------
   function conectar(){ #falta comprobar que no se cree una conexión cada vez que hacemos una consulta
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
+    #$mysqli->charset('utf8');
     try {
       $mysqli = new mysqli("mysql", "esther", "7028", "SIBW");
-      $mysqli->set_charset("utf8mb4");
     } catch(Exception $e) {
       error_log($e->getMessage());
       exit('Error connecting to database'); //Should be a message a typical user could understand
@@ -30,45 +31,29 @@
   }
 
   # Función para obtener el número de productos de la base de datos ------------------------
+
   function getNumProd(){
     $mysqli = checkCon($mysqli);
 
-    #$result = $mysqli->query("SELECT COUNT(*) FROM productos;");
-    $result = $mysqli->query("SELECT id_prod FROM productos");
-
-    if ($result->num_rows > 0) # si nos devuelve alguna fila (la consulta no está vacía)
-      $num = $result->num_rows;
-
-    return $num;
-  }
-
-  #Me gusta más esta pero no me funciona ------------------------
-  function getNumProd2(){
-    $mysqli = checkCon($mysqli);
-
-    $result = $mysqli->query("SELECT COUNT(*) FROM productos;");
+    $result = $mysqli->query("SELECT COUNT(*) as total FROM productos;");
 
     if ($result->num_rows > 0){ # si nos devuelve alguna fila (la consulta no está vacía)
       $row = $result->fetch_assoc();
-      $num = $row['Count(*)'];
+      $num = $row['total'];
     }
 
     return $num;
   }
 
-  function queryStmt($idProd, $conn, $tabla, $isordered, $order){
+  function queryStmt($mysqli, $query, $idProd){
     # Realizamos la consulta
-    if($isordered == false)
-      $query= "SELECT * FROM $tabla WHERE id_prod=?";
-    else
-      $query= "SELECT * FROM $tabla WHERE id_prod=? ORDER BY $order";
 
-    $stmt = $conn->prepare($query);
+    $stmt = $mysqli->prepare($query);
     $stmt->bind_param("i", $idProd);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    #$stmt->close();
+    $stmt->close();
     
     return $result;
   }
@@ -82,7 +67,8 @@
     $producto = array('nombre' => 'Nombre por defecto', 'marca' => 'Marca por defecto', 'precio' => '0.0', 'descripcion' => 'Descripcion por defecto'); # No les pongo atributos por defecto a las imágenes porque son nullable
 
     # Realizamos la consulta --
-    $result = queryStmt($idProd, $mysqli, "productos", false, 0);
+    $query= "SELECT * FROM productos WHERE id_prod=?";
+    $result = queryStmt($mysqli, $query, $idProd);
 
     if ($result->num_rows > 0) { # si nos devuelve alguna fila (la consulta no está vacía)
       $row = $result->fetch_assoc();
@@ -99,11 +85,13 @@
   function getComment($idProd){
 
     $mysqli = checkCon($mysqli);
+
     # Por defecto
     $comentarios = [];
 
     # Realizamos la consulta
-    $result = queryStmt($idProd, $mysqli, "comentarios", true, "fecha");
+    $query= "SELECT autor, DATE_FORMAT(fecha, '%d/%m/%Y %H:%i') as fecha, texto FROM comentarios WHERE id_prod=? order by fecha";
+    $result = queryStmt($mysqli, $query, $idProd);
 
     if ($result->num_rows > 0) { # si nos devuelve alguna fila (la consulta no está vacía)
       while($row = $result->fetch_assoc()){ #Recogemos las respuestas
@@ -120,11 +108,13 @@
   function getImages($idProd){
 
     $mysqli = checkCon($mysqli);
+
     # Por defecto
     $imagenes = [];
 
     # Realizamos la consulta
-    $result = queryStmt($idProd, $mysqli, "imagenes", false, 0);
+    $query= "SELECT * FROM imagenes WHERE id_prod=?";
+    $result = queryStmt($mysqli, $query, $idProd);
 
     if ($result->num_rows > 0) { # si nos devuelve alguna fila (la consulta no está vacía)
       while($row = $result->fetch_assoc()){
@@ -136,25 +126,6 @@
     #$imagenes = array('ruta' => $row['ruta'], 'caption' => $row['caption']);
     
     return $imagenes;
-  }
-
-
-  # Función que permite 
-  function getBannedWords(){
-    $mysqli = checkCon($mysqli);
-
-    $palabras = [];
-    $stmt = "SELECT * FROM palabras";
-    $result = $mysqli->query($stmt);
-
-    if ($result->num_rows > 0) { # si nos devuelve alguna fila (la consulta no está vacía)
-      while($row = $result->fetch_assoc()){
-        array_push($palabras, $row);
-      }
-      
-    }
-
-    return $palabras;
   }
 
   function insertComment($autor, $fecha, $texto){

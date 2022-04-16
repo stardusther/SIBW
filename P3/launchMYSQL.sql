@@ -29,6 +29,7 @@ CREATE TABLE comentarios(
   autor VARCHAR(100),
   fecha DATETIME, 
   texto VARCHAR(500),
+  respuesta INT REFERENCES productos,
   id_prod INT NOT NULL REFERENCES productos,
   PRIMARY KEY (autor,fecha)
 ) CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ;
@@ -61,6 +62,9 @@ INSERT INTO imagenes (ruta, caption, id_prod) VALUES ('../images/imagen2.webp','
 INSERT INTO imagenes (ruta, caption, id_prod) VALUES ('../images/imagen5.jpeg','Pinceles rotos', 3);
 INSERT INTO imagenes (ruta, caption, id_prod) VALUES ('../images/imagen3.jpg','Caballete', 4);
 INSERT INTO imagenes (ruta, caption, id_prod) VALUES ('../images/imagen4.jpeg','Caballete pequeñito', 4);
+INSERT INTO imagenes (ruta, caption, id_prod) VALUES ('../images/imagen11.jpeg','Pintura blanca', 5);
+INSERT INTO imagenes (ruta, caption, id_prod) VALUES ('../images/imagen9.jpeg','Pintura roja', 6);
+INSERT INTO imagenes (ruta, caption, id_prod) VALUES ('../images/imagen10.jpeg','Pintura roja', 6);
 
 
 INSERT INTO comentarios (autor, fecha, texto, id_prod) VALUES ('Rosa Mª Gallego Calvente', '2022-01-4 16:43', 'Producto horrible, lo dejé abierto un par de horas y se secó completamente. No lo recomiendo.', 1);

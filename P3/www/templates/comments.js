@@ -74,8 +74,26 @@ function showComments() {
 
 // Censurar palabras prohibidas --------------------------------------------------
 
+function getBanned(){
+    let xhttp = new XMLHttpRequest();
+    let words = null;
+
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){ // response finished & request ready & status == OK
+            json = JSON.parse(this.responseText);
+            for(var i of json)
+                words.push(i["palabra"]);
+        }
+    }
+
+    xhttp.open("GET", "http://localhost/banned.php", true);
+    xhttp.send();
+
+    return words;
+}
+
 function censor (palabra){ // Se podría hacer con un regex
-    let banned = ['coño', 'puta', 'cabrón', 'polla', 'joder', 'imbécil', 'follar', 'zorra', 'subnormal'];
+    let banned = getBanned();
 
     for(var aux of banned){ // que ponga tantos * como letras tiene la palabra
         palabra.value = palabra.value.replace(aux, "*".repeat(aux.length));

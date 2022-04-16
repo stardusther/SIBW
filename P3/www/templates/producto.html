@@ -54,7 +54,9 @@
             {% endfor %}
         </div>
         <!--- FORMULARIO: Publicar un nuevo comentario--->
-        <form id="form" action="javascript:void('');" class="add_comment">
+        <form id="form" action="javascript:void(0)" class="add_comment" method="post">
+            <!--input type="hidden" name="post_id" value="<?php echo $post_id; ?>" required-->
+
             <label>Nombre
                 <input id="fname" type="string" name="fname"  onkeyup="censor(document.getElementById('fname'))" placeholder="John Doe">
             </label><br>

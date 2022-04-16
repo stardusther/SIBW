@@ -17,25 +17,36 @@
 	padding: 10px;
 }
 
+/* Marca y precio */
 .flex-info{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: left;
-	margin-left: 100px;
+	margin-left: 15%;
 }
 
+/* Descripcion */
 .article-flex{
 	display:flex;
-	justify-content: center;
+	justify-content: left;
 	flex-direction: row;
 	flex-wrap: wrap;
-
+	
 }
 
+/* Descripcion, marca y precio */
 article{
 	text-align: justify;
-	margin-left: 2%;
+	display: flex;
+	justify-content: left;
+	flex-direction: column;
+	width: 80%;
+	margin-left: 10px;
+}
+
+.article-text{
+	text-align: justify;
 }
 
 /* Título Producto*/
@@ -63,8 +74,10 @@ article h4 {
 
 
 .image-container img {
-	width: 100%;
+	width: 250px;
+	height: 250px;
 	border-radius: 0px 10px;
+	object-fit: cover;
 }
 
 .image-container {

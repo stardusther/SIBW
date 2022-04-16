@@ -1,15 +1,19 @@
 <?php
     require_once "/usr/local/lib/php/vendor/autoload.php";
+    include ("database.php");
 
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader);
 
-    $nombreProducto = "Nombre por defecto";
-    $precioProducto = "0,00";
-    $marcaProducto = "Dora la exploradora";
-    $descripcionProducto = "Una descripción extrañamente corta";
-    $foto1 = "../images/imagen1.jpg";
-    $foto2 = "../images/imagen1.jpg";
+    if (isset($_GET['prod'])) {
+        $idProd = $_GET['prod'];
+    } else {
+        $idProd = -1;
+    }
+    
+    # Lanzamos database.php
+    $producto = getProduct($idProd);  
+    $imagenes = getImages($idProd);
   
-    echo $twig->render('producto_imprimir.html', ['nombre' => $nombreProducto, 'precio' => $precioProducto, 'marca' => $marcaProducto, 'descripcion' => $descripcionProducto, 'foto1' => $foto1, 'foto2' => $foto2]);
+    echo $twig->render('producto_imprimir.html', ['producto' => $producto, 'imagenes' => $imagenes]);
 ?>

@@ -43,16 +43,6 @@
     </div>
 
     <div id="flex-comentarios">
-        <!---Comentarios publicados--->
-        <div id="commentSection">
-            {% for comment in comentarios %}
-                <div class="comentario">
-                    <p class="nombre">{{comment.autor}} <span class="fecha">{{comment.fechaFormateada}}</span></p>
-                    <p class="texto"> {{comment.texto}}</p>
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-            {% endfor %}
-        </div>
         <!--- FORMULARIO: Publicar un nuevo comentario--->
         <form id="form" action="javascript:void(0)" class="add_comment" method="post">
             <!--input type="hidden" name="post_id" value="<?php echo $post_id; ?>" required-->
@@ -68,11 +58,22 @@
             </label>
             <input id="commentButton" type="submit" value="Publicar">
         </form>
+        
+        <!---Comentarios publicados--->
+        <div id="commentSection">
+            {% for comment in comentarios %}
+                <div class="comentario">
+                    <p class="nombre">{{comment.autor}} <span class="fecha">{{comment.fechaFormateada}}</span></p>
+                    <p class="texto"> {{comment.texto}}</p>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
 
 {% block socials %}
     {{ parent () }}
-    <a href="producto_imprimir.php" class="fa fa-print"></a>
+    <a href="producto_imprimir.php?prod={{producto['id']}}" class="fa fa-print"></a>
 {%endblock %}

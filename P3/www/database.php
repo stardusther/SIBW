@@ -11,7 +11,7 @@
       $mysqli->set_charset("utf8mb4");
     } catch(Exception $e) {
       error_log($e->getMessage());
-      exit('Error connecting to database'); //Should be a message a typical user could understand
+      exit('Error connecting to database'); 
     }
 
     return $mysqli;
@@ -35,6 +35,8 @@
 
   function getNumProd(){
     $mysqli = checkCon($mysqli);
+
+    $num = 0;
 
     $result = $mysqli->query("SELECT COUNT(*) as total FROM productos;");
 
@@ -77,7 +79,7 @@
     
     #$producto = array('nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'rutaimagen1' => $row['rutaimagen1'], 'rutaimagen2' => $row['rutaimagen2']);
 
-    $producto = array('nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'fecha' => $row['fechaPublicacion']);
+    $producto = array('id' => $row['id_prod'], 'nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'fecha' => $row['fechaPublicacion']);
     
     return $producto;
   } 
@@ -91,7 +93,7 @@
     $comentarios = [];
 
     # Realizamos la consulta
-    $query= "SELECT autor, DATE_FORMAT(fecha, '%d/%m/%Y %H:%i') as fechaFormateada, texto FROM comentarios WHERE id_prod=? order by fecha";
+    $query= "SELECT autor, DATE_FORMAT(fecha, '%d/%m/%Y, %H:%i') as fechaFormateada, texto FROM comentarios WHERE id_prod=? order by fecha";
     $result = queryStmt($mysqli, $query, $idProd);
 
     if ($result->num_rows > 0) { # si nos devuelve alguna fila (la consulta no está vacía)

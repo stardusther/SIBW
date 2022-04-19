@@ -81,16 +81,14 @@ function getBanned(){
     let xhttp = new XMLHttpRequest();
     let words = [];
 
-    xhttp.open('GET', 'http://localhost/banned.php', true);
+    xhttp.open('GET', '/banned.php', true);
 
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){ // response finished & request ready & status == OK
-            json = JSON.parse(this.responseText);
-            if(json == null)
-                window.alert('el array de palabras censurables es null'); //TODO quitar
-            else
-                for(var i of json)
-                    words.push(i["palabra"]);
+            var json = JSON.parse(this.responseText);
+            for(var i of json){
+                words.push(i);
+            }
         }
     };
 

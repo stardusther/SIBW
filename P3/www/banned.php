@@ -21,7 +21,11 @@
 
     $palabras = getBannedWords();
 
-    echo json_encode($palabras, JSON_UNESCAPED_UNICODE); # JSON_UNESCAPED Para que no salgan los /uXXXX
+    $encodedWords = json_encode($palabras, JSON_UNESCAPED_UNICODE); # JSON_UNESCAPED Para que no salgan los /uXXXX
+
+     echo  $encodedWords
+
+
 
     /*echo ' <script> 
     
@@ -59,7 +63,5 @@
      
         mysqli_query($conn, "INSERT INTO comments(name, email, comment, post_id, created_at) VALUES ('" . $name . "', '" . $email . "', '" . $comment . "', '" . $post_id . "', NOW())");
     }*/
-
-
      
 ?>

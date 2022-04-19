@@ -5,10 +5,10 @@ let commentSection = null;
 let commentDiv = null;
 let formulario = null;
 let sendButton = null;
-let likeButton = null;
+//let likeButton = null;
 let fname = null;
 let fcomment = null;
-
+let banned = [];
 
 // Inicializar ----------------------------------------------------------
 
@@ -31,7 +31,7 @@ function init() {
     // Botón que publica el comentario
     sendButton = document.getElementById('commentButton');
     // Botón de corazón
-    likeButton = document.getElementById('fa-heart');
+    //likeButton = document.getElementById('fa-heart');
 
     // Probando
     commentDiv.style.display = "none";
@@ -48,17 +48,20 @@ function init() {
     formulario.addEventListener("submit", verificar);
 
     // Dar like (no funciona)
-    likeButton.addEventListener("click", liked);
+    //likeButton.addEventListener("click", liked);
+
+    banned = getBanned();
+
 }
 
-// liked
+/* liked
 
 function liked(){
     if(likeButton.classList.contains("liked"))
         likeButton.classList.remove( "liked");
     else
         likeButton.classList.add( "liked");
-}
+}*/
 
 // Mostrar comentarios --------------------------------------------------
 
@@ -76,24 +79,27 @@ function showComments() {
 
 function getBanned(){
     let xhttp = new XMLHttpRequest();
-    let words = null;
+    let words = [];
+
+    xhttp.open('GET', 'http://localhost/banned.php', true);
 
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){ // response finished & request ready & status == OK
             json = JSON.parse(this.responseText);
-            for(var i of json)
-                words.push(i["palabra"]);
+            if(json == null)
+                window.alert('el array de palabras censurables es null'); //TODO quitar
+            else
+                for(var i of json)
+                    words.push(i["palabra"]);
         }
-    }
+    };
 
-    xhttp.open("GET", "http://localhost/banned.php", true);
-    xhttp.send();
+    xhttp.send(null);
 
     return words;
 }
 
 function censor (palabra){ // Se podría hacer con un regex
-    let banned = getBanned();
 
     for(var aux of banned){ // que ponga tantos * como letras tiene la palabra
         palabra.value = palabra.value.replace(aux, "*".repeat(aux.length));

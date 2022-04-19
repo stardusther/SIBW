@@ -8,6 +8,7 @@
     #$mysqli->charset('utf8');
     try {
       $mysqli = new mysqli("mysql", "esther", "7028", "SIBW");
+      $mysqli->set_charset("utf8mb4");
     } catch(Exception $e) {
       error_log($e->getMessage());
       exit('Error connecting to database'); //Should be a message a typical user could understand
@@ -90,7 +91,7 @@
     $comentarios = [];
 
     # Realizamos la consulta
-    $query= "SELECT autor, DATE_FORMAT(fecha, '%d/%m/%Y %H:%i') as fecha, texto FROM comentarios WHERE id_prod=? order by fecha";
+    $query= "SELECT autor, DATE_FORMAT(fecha, '%d/%m/%Y %H:%i') as fechaFormateada, texto FROM comentarios WHERE id_prod=? order by fecha";
     $result = queryStmt($mysqli, $query, $idProd);
 
     if ($result->num_rows > 0) { # si nos devuelve alguna fila (la consulta no está vacía)

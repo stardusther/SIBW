@@ -47,7 +47,7 @@
         <div id="commentSection">
             {% for comment in comentarios %}
                 <div class="comentario">
-                    <p class="nombre">{{comment.autor}} <span class="fecha">{{comment.fecha}}</span></p>
+                    <p class="nombre">{{comment.autor}} <span class="fecha">{{comment.fechaFormateada}}</span></p>
                     <p class="texto"> {{comment.texto}}</p>
                     <i class="fa-solid fa-heart"></i>
                 </div>

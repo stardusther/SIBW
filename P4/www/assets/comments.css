@@ -1,0 +1,161 @@
+#commentSection{
+    display: block;
+}
+
+/* Botón que muestra/oculta los comentarios*/
+#flex-boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.fa-comment{
+    color: #a09abc;
+}
+
+#toggleComments{
+    display: block;
+    
+    padding: 10px;
+    border-style: dashed;
+    border-radius: 20px;
+
+    background-color: white;
+
+    color: #7a709a;
+    font-weight: bold;
+    font-size: large;
+}
+
+#toggleComments:hover{
+    background-color: #a09abc;
+    color: white;
+    border-style: dashed #a09abc;
+}
+
+
+/* Contenedor de los comentarios publicados*/
+
+#flex-comentarios{
+    display: none;
+    justify-content: center;
+    margin: 10px;
+    flex-direction: column;
+    margin: 10px;
+}
+
+#commentSection{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* Formulario para enviar un comentario*/
+.add_comment{
+    display: block;
+    border: #7a709a dashed;
+    border-radius: 40px;
+    padding: 30px
+}
+
+.comentario{
+    padding: 10px;
+    background: #a09abc;
+    border-radius: 20px;
+    margin: 10px
+}
+
+.nombre{
+    padding-left: 20px;
+    color: white;
+    font-weight: bolder;
+}
+
+.fecha{
+    text-align: end;
+    color: ghostwhite;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.texto{
+    padding-left: 40px;
+}
+
+/* Formulario para enviar un comentario*/
+#form{
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+
+}
+
+#fname{
+    display: flex;
+    height: 30px;
+}
+
+#femail{
+    display: flex;
+    height: 30px;
+}
+
+#fcomment{
+    display: flex;
+    width: 400px;
+    height: 100px;
+    align-content: center;
+}
+
+#commentButton{
+    padding: 10px;
+    float: right;
+    background: #7a709a;
+    border-radius: 10px;
+    margin-top: 10px;
+
+    color: white;
+    font-weight: bolder;
+}
+
+#commentButton:hover{
+    opacity: 0.7;
+}
+
+/*Like button*/
+
+.fa-heart {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    overflow: hidden;
+    /*animation: like .4s ease;*/
+}
+
+
+.liked {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #5b53a2;
+    overflow: hidden;
+    /*animation: like .4s ease;*/
+}
+/*
+@keyframes like {
+    0% {
+      transform: scale(.8);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  */

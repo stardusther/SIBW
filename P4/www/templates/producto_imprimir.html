@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+
+{% block stylesheets %} 
+    <link rel="stylesheet" href="../assets/printstyle.css">
+{% endblock %}
+
+{% block cuerpo %}
+<div class="flex-cuerpo">
+
+    <!--- Productos --->
+    <article>
+        <h2>{{producto['nombre']}}</h2>
+
+        <div class="flex-info">
+            <h4>{{producto['marca']}}</h4>
+            <p class="precio">{{producto['precio']}}€</p>
+        </div>
+
+        <div class="article-flex">
+            <div class="article-text">
+                <p>{{producto['descripcion']}}</p>
+            </div>
+        </div>
+
+        <div class="img-flex">
+            {% for imagen in imagenes %}
+                <figure class="image-container">
+                    <img src="{{imagen.ruta}}" alt="Una imagen">
+                    <figcaption>{{imagen.caption}}</figcaption>
+                </figure>
+            {% endfor %} 
+        </div>
+    </article>
+</div>
+{% endblock %}

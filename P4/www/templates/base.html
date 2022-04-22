@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--- Título de la pestaña --->
+    <title> artsy </title>
+    <!--- Para el responsive design --->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- Formato de caracteres --->
+    <meta charset="UTF-8">
+    <!--- Nombre del autor --->
+    <meta name="autor" content="Esther García Gallego">
+    <!--- Link a las hojas de CSS --->
+    {% block stylesheets %}
+        <link rel="stylesheet" href="../assets/header.css">
+        <link rel="stylesheet" href="../assets/sidebar.css">
+        <link rel="stylesheet" href="../assets/navbar.css">
+        <link rel="stylesheet" href="../assets/general.css">
+        <link rel="stylesheet" href="../assets/footer.css">
+    {% endblock %}
+     <!--- Script para comentarios --->
+    <script src="../templates/comments.js"></script>
+    <!-- Librería de iconos -->
+    <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>
+    <!--- google fonts--->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!------------------------------- Contenedor del cuerpo de la página ------------------------------->
+<header>
+    <div class="header-flex">
+        <i id="logo" class="fas fa-brush"></i>
+        <h1> artsy </h1>
+    </div>
+
+    <div class="typeoutcontainer">
+        <div id="typed-out"> Todo lo que necesitas para hacer arte</div>
+    </div>
+    <!--- Menu principal --->
+    <nav class="flex-menu">
+        <a class="menu" {%block index%}{%endblock%} href="index.php"> Home </a> 
+        <a class="menu" {%block contacto%}{%endblock%}href="contacto.php"> Quiénes somos </a>
+        <a class="menu" href="contacto.php"> Contacto </a>
+        <a class="menu" href="contacto.php"> Blog </a>
+        <!--i class='fas fa-shopping-cart'></i-->
+    </nav>
+</header>
+
+{% block cuerpo %}
+    <!--- Barra lateral --->
+    <aside>
+        <span class="flex-menusocial">
+            {% block socials %}
+            <!-- Iconos sociales --->
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            {% endblock %}
+        </span>
+        <ul>
+            <li><a href=#> Enlace de interés </a></li>
+            <li><a href=#> Enlace de interés </a></li>
+            <li><a href=#> Enlace de interés </a></li>
+        </ul>
+    </aside>
+{% endblock %}
+
+<!--- Pie de página --->
+<footer> Copyright &copy; 2022 Esther García Gallego</footer>
+
+
+</body>
+
+</html>

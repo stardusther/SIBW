@@ -1,0 +1,73 @@
+{% extends "base.html"%}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../assets/product.css">
+{% endblock %}
+
+{%block index%}
+    id="activa"
+{%endblock %}
+
+{% block cuerpo %}
+    <div class="flex-cuerpo">
+        
+        <!--- Productos --->
+        <section class="flex-productos">
+            {% for i in 1..numprod %}
+                <div class="producto">
+                    <img onclick="window.location.href = 'producto.php?prod={{i}}';" src="../images/pencil.png" alt="Lápiz">
+                </div>
+            {% endfor %}
+
+            <!-- Producto 1 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php?prod=1';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+             Producto 2 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php?prod=2';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+             Producto 3 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php?prod=3';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+            Producto 4
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php?prod=4';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+            Producto 5 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+            Producto 6 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+             Producto 7 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+            Producto 8 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+
+            Producto 9 
+            <div class="producto">
+                <img onclick="window.location.href = 'producto.php';" src="../images/pencil.png" alt="Lápiz">
+            </div>
+            -->
+
+        </section>
+
+        {{ parent () }}
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+/* --------------- Menu lateral ----------------- */
+aside {
+    max-width: 250px;
+    min-width: 200px;
+    float: right;
+    font-weight: bold;
+
+    background: #A09ABC;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+}
+
+.flex-menusocial{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Links */
+ul {
+    list-style-type: circle;
+    text-align: left;
+    justify-content: center;
+}
+
+ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+/* ---------------------- ICONOS ---------------------- */
+
+/* General */
+.fa {
+    margin: 6px 5px;
+    padding: 10px;
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: transform .2s; /* Animation */
+}
+
+/* Efecto al pasar el ratón por encima */
+.fa:hover {
+    opacity: 0.9;
+    transform: scale(1.2);
+}
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    background: #E1306C;
+    color: white;
+}
+
+.fa-print {
+    background: #6e6e6e;
+    color: white;
+}

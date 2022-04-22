@@ -20,7 +20,7 @@ cd docker-compose-lamp/
 git fetch --all
 git checkout 7.4.x
 cp sample.env .env
-docker-compose up -d
+docker-compose up
 ```
 
 Your LAMP stack is now ready!! You can access it via `http://localhost`.

@@ -42,30 +42,38 @@
         <button id="toggleComments">Mostrar comentarios</button>
     </div>
 
+    
     <div id="flex-comentarios">
         <!--- FORMULARIO: Publicar un nuevo comentario--->
-        <form id="form" action="javascript:void(0)" class="add_comment" method="post">
-            <!--input type="hidden" name="post_id" value="<?php echo $post_id; ?>" required-->
+        {% if usuario %}
+            <form id="form" action="javascript:void(0)" class="add_comment" method="post">
+                <!--input type="hidden" name="post_id" value="<?php echo $post_id; ?>" required-->
 
-            <label>Nombre
-                <input id="fname" type="string" name="fname"  onkeyup="censor(document.getElementById('fname'))" placeholder="John Doe">
-            </label><br>
-            <label>Email
-                <input id="femail" type="email" name="femail" placeholder="example@gmail.com">
-            </label><br>
-            <label>Comentario
-                <textarea id="fcomment" name="fcomment" onkeyup="censor(document.getElementById('fcomment'))"  placeholder="Escribe tu comentario aquí..."></textarea>
-            </label>
-            <input id="commentButton" type="submit" value="Publicar">
-        </form>
+                <label>Nombre
+                    <input id="fname" type="string" name="fname"  onkeyup="censor(document.getElementById('fname'))" placeholder="John Doe">
+                </label><br>
+                <label>Email
+                    <input id="femail" type="email" name="femail" placeholder="example@gmail.com">
+                </label><br>
+                <label>Comentario
+                    <textarea id="fcomment" name="fcomment" onkeyup="censor(document.getElementById('fcomment'))"  placeholder="Escribe tu comentario aquí..."></textarea>
+                </label>
+                <input id="commentButton" type="submit" value="Publicar">
+            </form>
+            {% else %}
+                <p>Debes iniciar sesión para poder publicar comentarios</p>
+         {% endif %}
         
         <!---Comentarios publicados--->
+        
         <div id="commentSection">
             {% for comment in comentarios %}
                 <div class="comentario">
                     <p class="nombre">{{comment.autor}} <span class="fecha">{{comment.fechaFormateada}}</span></p>
                     <p class="texto"> {{comment.texto}}</p>
                     <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-pencil"></i>
+                    <i class="fa-solid fa-trash-can"></i>
                 </div>
             {% endfor %}
         </div>

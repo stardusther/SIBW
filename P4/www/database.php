@@ -140,4 +140,160 @@
 
   }
 
+  # Función que permite consultar la BD de palabras banneadas
+  function getBannedWords(){
+    $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
+
+    $palabras = [];
+    $stmt = "SELECT * FROM palabras";
+    $result = $mysqli->query($stmt);
+
+    if ($result->num_rows > 0) { # si nos devuelve alguna fila (la consulta no está vacía)
+        while($row = $result->fetch_assoc()){
+            array_push($palabras, $row['palabra']);
+        }
+    }
+
+    return $palabras;
+}
+
+  # Función para obtener los datos de usuario en función del nombre de usuario
+  function getUser($username){
+    $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
+
+    # Preparamos la sentencia
+    if (!($stmt = $mysqli->prepare("SELECT user, email, password, nombre, admin, moderate, manage  FROM usuarios WHERE user=?"))) {
+      echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
+    # Vinculamos los parámetros
+    if (!$stmt->bind_param("s", $username)) {
+        echo "Falló la vinculación de parámetros: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    # Ejecutamos la sentencia
+    if (!$stmt->execute()) {
+        echo "Falló la ejecución: (" . $stmt->errno . ") " . $stmt->error;
+    }
+
+    $res = $stmt->get_result();
+
+    $usuario = array();
+
+    if ($res->num_rows > 0){
+        $row = $res->fetch_assoc();
+        $user = $row["user"];
+        $nombre = $row["nombre"];
+        $email = $row["email"];
+        $moderate = $row["moderate"];
+        $manage = $row["manage"];
+        $admin = $row["admin"];
+
+        // cuando sea valido
+        $usuario = array('user' => $user, 'nombre' => $nombre, 'email' => $email, 'moderate' => $moderate, 'manage' => $manage, 'admin' => $admin);
+    }
+    return $usuario;
+ }
+
+ // Función para registrar un usuario
+ function registerUser($user){
+    $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
+
+    # Preparamos la sentencia
+    if (!($stmt = $mysqli->prepare("INSERT INTO usuarios(user, email, password, nombre, admin, moderate, manage) VALUES (?, ?, ?, ?, 0,0,0)"))) {
+      // echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
+      return false;
+    }
+
+    $pass = password_hash($user['password'], PASSWORD_DEFAULT);
+    # Vinculamos los parámetros
+    if (!$stmt->bind_param("ssss", $user["user"], $user["email"], $pass, $user["nombre"])) {
+        #echo "Falló la vinculación de parámetros: (" . $stmt->errno . ") " . $stmt->error;
+        return false;
+    }
+    # Ejecutamos la sentencia
+    if (!$stmt->execute()) {
+        # echo "Falló la ejecución: (" . $stmt->errno . ") " . $stmt->error;
+        return false;
+    }
+
+    return true;
+ }
+
+ // Función para comprobar el login del usuario
+ function checkLogin($username, $pass){
+    $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
+
+    # Preparamos la sentencia
+    if (!($stmt = $mysqli->prepare("SELECT user, password FROM usuarios WHERE user=?"))) {
+      echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
+    # Vinculamos los parámetros
+    if (!$stmt->bind_param("s", $username)) {
+        echo "Falló la vinculación de parámetros: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    # Ejecutamos la sentencia
+    if (!$stmt->execute()) {
+        echo "Falló la ejecución: (" . $stmt->errno . ") " . $stmt->error;
+    }
+
+    $res = $stmt->get_result();
+    $usuario = array();
+    if ($res->num_rows > 0){
+        $row = $res->fetch_assoc();
+        $user = $row["user"];
+        $password = $row["password"];
+    }
+    
+    if (password_verify($pass, $password)){
+      return true;
+    } else return false;
+
+ }
+
+ // ----------------------------------------------------------------
+ // Función para editar la contraseña del usuario 
+ function editPassword($username, $pass){
+    $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
+
+    # Preparamos la sentencia
+    if (!($stmt = $mysqli->prepare("UPDATE usuarios SET password=? WHERE user=?"))) {
+      #echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
+      return false;
+    }
+    # Vinculamos los parámetros
+    if (!$stmt->bind_param("ss", $pass, $username)) {
+        #echo "Falló la vinculación de parámetros: (" . $stmt->errno . ") " . $stmt->error;
+        return false;
+    }
+    # Ejecutamos la sentencia
+    if (!$stmt->execute()) {
+        #echo "Falló la ejecución: (" . $stmt->errno . ") " . $stmt->error;
+        return false;
+    }
+
+    return true;  
+  }
+
+ // Función para editar los datos del usuario
+  function editProfile($user){
+    $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
+
+    # Preparamos la sentencia
+    if (!($stmt = $mysqli->prepare("UPDATE usuarios SET nombre=?, email=? WHERE user=?"))) {
+      // echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
+      return false;
+    }
+    # Vinculamos los parámetros
+    if (!$stmt->bind_param("sss", $user["nombre"], $user["email"], $user["user"])) {
+        // echo "Falló la vinculación de parámetros: (" . $stmt->errno . ") " . $stmt->error;
+        return false;
+    }
+    # Ejecutamos la sentencia
+    if (!$stmt->execute()) {
+        // echo "Falló la ejecución: (" . $stmt->errno . ") " . $stmt->error;
+        return false;
+    }
+    return true;
+  }
+
+
 ?>

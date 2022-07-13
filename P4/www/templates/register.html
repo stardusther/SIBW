@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../assets/register.css">
+</head>
+<body>
+
+<form method="POST">
+  <div class="container">
+    <h1>Registro</h1>
+    <p>Por favor, rellene este formulario para crear una cuenta.</p>
+    <hr>
+
+    <label for="nombre"><strong>Nombre</strong></label>
+    <input type="text" placeholder="Introduzca el nombre" name="nombre" id="nombre" required>
+
+    <label for="email"><strong>Email</strong></label>
+    <input type="email" placeholder="Introduzca el email" name="email" id="email" required>
+    
+    <label for="username"><strong>Nombre de usuario</strong></label>
+    <input type="text" placeholder="Introduzca el nombre de usuario" name="username" id="username" required>
+
+    <label for="password"><strong>Contraseña</strong></label>
+    <input type="password" placeholder="Introduzca contraseña" name="password" id="password" required>
+
+    <button type="submit" class="registerbtn">Registrarse</button>
+  </div>
+  
+  <div class="container signin">
+    <p>¿Ya tienes una cuenta? <a href="login.php">Iniciar sesión</a></p>
+  </div>
+</form>
+
+</body>
+</html>

@@ -41,12 +41,25 @@
     </div>
     <!--- Menu principal --->
     <nav class="flex-menu">
-        <a class="menu" {%block index%}{%endblock%} href="index.php"> Home </a> 
-        <a class="menu" {%block contacto%}{%endblock%}href="contacto.php"> Quiénes somos </a>
-        <a class="menu" href="contacto.php"> Contacto </a>
-        <a class="menu" href="contacto.php"> Blog </a>
-        <!--i class='fas fa-shopping-cart'></i-->
+        <div class="container">
+            <a class="menu" {%block index%}{%endblock%} href="index.php"> Home </a> 
+            <a class="menu" {%block contacto%}{%endblock%} href="contacto.php"> Quiénes somos </a>
+            <a class="menu" href="contacto.php"> Contacto </a>
+            <a class="menu" href="contacto.php"> Blog </a>
+        </div>
+        
+        {% if usuario %}
+            <a class="menu" id="edit_user" href="edit_user.php"><i class="fa fa-user" aria-hidden="true"></i>{{usuario.nombre}}</a>
+            <a class="menu" id="edit_usert" href="logout.php">Cerrar sesión</a>            
+        {% else %}
+            <a class="menu" id="login" href="login.php"> Acceder </a>
+            <a class="menu" id="register" href="register.php"> Registrarse </a>
+        {% endif %}
+            <!--i class='fas fa-shopping-cart'></i-->
     </nav>
+
+    
+
 </header>
 
 {% block cuerpo %}

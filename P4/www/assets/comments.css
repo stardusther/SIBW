@@ -135,16 +135,14 @@
     /*animation: like .4s ease;*/
 }
 
-
-.liked {
+.fa-pencil {
     position: relative;
     float: right;
     margin-right: 10px;
     font-size: 30px;
     cursor: pointer;
-    color: #5b53a2;
+    color: white;
     overflow: hidden;
-    /*animation: like .4s ease;*/
 }
 /*
 @keyframes like {

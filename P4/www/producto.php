@@ -12,10 +12,19 @@
         $idProd = -1;
     }
     
+    session_start();
+
+    if (isset($_SESSION['username'])){
+        $usuario = getUser($_SESSION['username']);
+    } else {
+        echo "Debes iniciar sesión primero";
+        exit();
+    }
+
     # Lanzamos database.php
     $producto = getProduct($idProd);  
     $imagenes = getImages($idProd);
     $comentarios = getComment($idProd);
   
-    echo $twig->render('producto.html', ['producto' => $producto, 'imagenes' => $imagenes, 'comentarios' => $comentarios]);
+    echo $twig->render('producto.html', ['usuario' => $usuario, 'producto' => $producto, 'imagenes' => $imagenes, 'comentarios' => $comentarios]);
 ?>

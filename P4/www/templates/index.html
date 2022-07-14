@@ -9,15 +9,24 @@
     id="activa"
 {%endblock %}
 
+{%block searchbar %}
+    <div id="searchbar">
+        <input id="search-text" type="text" name="search"><i class="fas fa-search"></i>
+        <div id="results"></div>
+        
+    </div>
+{%endblock %}
+
 {% block cuerpo %}
     <div class="flex-cuerpo">
-        
         <!--- Productos --->
         <section class="flex-productos">
-            {% for i in 1..numprod %}
+            {% for prod in productos %}
+                {% if prod.publicado == true or usuario.admin or usuario.moderate %}
                 <div class="producto">
-                    <img onclick="window.location.href = 'producto.php?prod={{i}}';" src="../images/pencil.png" alt="Lápiz">
+                    <a href='producto.php?prod={{prod.id}}'><img  src="../images/pencil.png" alt={{prod.nombre}}></a>
                 </div>
+                {% endif %}
             {% endfor %}
         </section>
 

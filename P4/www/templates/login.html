@@ -2,17 +2,21 @@
 <head>
   <link rel="stylesheet" href="../assets/login.css">
 </head>
-
-<form action="login.php" method="post">
+<body>
+  <form action="login.php" method="post">
     <div class="container">
       <label for="username"><b>Usuario</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <input type="text" placeholder="Introduzca el nombre de usuario" name="username" required>
       <br/>
       <br/>
       <label for="password"><b>Contraseña</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <input type="password" placeholder="Introduzca la contraseña" name="password" required>
       <br/>
-      <br/>
+      {% if codigo_error == false %}
+        <br/>
+        <span class="fail">El usuario o la contraseña son incorrectos</span><br/>    
+        {% endif %}
+        <br/> 
       <button type="submit">Iniciar sesión</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Recuérdame
@@ -23,5 +27,6 @@
       </div>
     </div>
   </form> 
+</body>
 
 </html>

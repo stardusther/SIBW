@@ -6,8 +6,7 @@
     flex-wrap: none;
     justify-content: left;
     align-items: center;
-    /*background-color: #a09abc;*/
-    background-color: #000;
+    background-color: #a09abc;
     overflow: auto;
     width: 100%;
     margin:0;
@@ -19,7 +18,7 @@
     flex-wrap: none;
     justify-content: left;
     width: 100%;
-    background-color: #000;
+    height: auto;
 }
 
 /* Texto del menú principal*/
@@ -39,23 +38,35 @@ nav a.menu:hover:not(.activa){
     background-color: #B6A6CA;
 }
 
+nav a.menu2{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+    min-width: 150px;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
 /* Para que la pestaña activa destaque*/
 #activa {
     background-color: #7a709a;
 }
 
-#login {
+#login a{
     float: right;
     font-weight: bold;
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
     
     text-align: right;
 }
 
-#login:hover{
-    opacity: 0.7;
+.menu2:hover{
+    opacity: 1;
 }

@@ -20,6 +20,7 @@
     {% endblock %}
      <!--- Script para comentarios --->
     <script src="../templates/comments.js"></script>
+    <script src="../templates/search.js"></script>
     <!-- Librería de iconos -->
     <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>
     <!--- google fonts--->
@@ -49,11 +50,11 @@
         </div>
         
         {% if usuario %}
-            <a class="menu" id="edit_user" href="edit_user.php"><i class="fa fa-user" aria-hidden="true"></i>{{usuario.nombre}}</a>
-            <a class="menu" id="edit_usert" href="logout.php">Cerrar sesión</a>            
+            <a class="menu2" id="edit_user" href="edit_user.php"><i class="fa fa-user" aria-hidden="true"></i>{{usuario.nombre}}</a>
+            <a class="menu2" id="edit_usert" href="logout.php">Cerrar sesión</a>            
         {% else %}
-            <a class="menu" id="login" href="login.php"> Acceder </a>
-            <a class="menu" id="register" href="register.php"> Registrarse </a>
+            <a class="menu2" id="login" href="login.php"> Acceder </a>
+            <a class="menu2" id="register" href="register.php"> Registrarse </a>
         {% endif %}
             <!--i class='fas fa-shopping-cart'></i-->
     </nav>
@@ -65,6 +66,8 @@
 {% block cuerpo %}
     <!--- Barra lateral --->
     <aside>
+        {%block searchbar %}{% endblock %}
+            
         <span class="flex-menusocial">
             {% block socials %}
             <!-- Iconos sociales --->

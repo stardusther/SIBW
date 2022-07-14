@@ -7,11 +7,12 @@
     $twig = new \Twig\Environment($loader);
 
     $num = getNumProd();
+    $productos = getProducts();
 
     session_start();
     if (isset($_SESSION['username'])){
         $user = getUser($_SESSION['username']);
     }
   
-    echo $twig->render('index.html', ['numprod' => $num, 'usuario' => $user]);
+    echo $twig->render('index.html', ['numprod' => $num, 'usuario' => $user, 'productos' => $productos]);
 ?>

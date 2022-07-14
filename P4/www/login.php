@@ -6,14 +6,14 @@
 
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader);
-  
+    $codigo_error = true;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $username = $_POST['username'];
         $password = $_POST['password'];
         
         if (!empty($username) && !empty($password)){
-            if (checkLogin($username, $password)){
+            if ($codigo_error = checkLogin($username, $password)){
                 session_start();
                 $_SESSION['username'] = $username;
                 header("Location: index.php");
@@ -23,5 +23,5 @@
     }
 
 
-    echo $twig->render('login.html', []);
+    echo $twig->render('login.html', ['codigo_error' => $codigo_error]);
 ?>

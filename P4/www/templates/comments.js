@@ -25,7 +25,7 @@ function init() {
     // El formulario de los datos del usuario
     formulario = document.getElementById("form");
     // Nombre que introduce el usuario en el formulario
-    fname = document.forms["form"]["fname"];
+    //fname = document.forms["form"]["fname"];
     // Comentario que introduce el usuario
     fcomment = document.forms["form"]["fcomment"];
     // Botón que publica el comentario
@@ -42,7 +42,7 @@ function init() {
 
     // Comprobar palabras que escribe el usuario
     fcomment.addEventListener("keyup", censor(fcomment));
-    fname.addEventListener("keyup", censor(fname));
+    //fname.addEventListener("keyup", censor(fname));
 
     // Verificar y publicar comentario
     formulario.addEventListener("submit", verificar);
@@ -132,7 +132,7 @@ function verificar() {
 
 // Publicar comentario formateado -----------------------------------
 
-function publicarComentario() {
+/*function publicarComentario() {
     // Guardamos la fecha actual dd/mm/yy hh:mm
     let hoy = new Date();
     
@@ -164,4 +164,4 @@ function publicarComentario() {
 
     // Lo metemos en la sección de comentarios
     commentSection.appendChild(wrapper);
-}
+}*/

@@ -61,7 +61,7 @@
     return $result;
   }
 
-  # Función para obtener el producto ------------------------
+  # Función para obtener el producto con ese idProd ------------------------
   function getProduct($idProd) {
   
     $mysqli = checkCon($mysqli);
@@ -79,12 +79,61 @@
     
     #$producto = array('nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'rutaimagen1' => $row['rutaimagen1'], 'rutaimagen2' => $row['rutaimagen2']);
 
-    $producto = array('id' => $row['id_prod'], 'nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'fecha' => $row['fechaPublicacion']);
+    $producto = array('id' => $row['id_prod'], 'nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'fecha' => $row['fechaPublicacion'], 'publicado' => $row['publicado']);
     
     return $producto;
   } 
 
-  # Función para obtener los comentarios relacionados con un producto
+    # Función para obtener todos los productos ------------------------
+    function getProducts() {
+  
+      $mysqli = checkCon($mysqli);
+  
+      # Por defecto
+      $producto = array('nombre' => 'Nombre por defecto', 'marca' => 'Marca por defecto', 'precio' => '0.0', 'descripcion' => 'Descripcion por defecto'); # No les pongo atributos por defecto a las imágenes porque son nullable
+  
+      # Realizamos la consulta --
+      # Primero preparamos
+      if (!($stmt = $mysqli->prepare("SELECT * from productos"))) {
+        echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
+      }
+      # luego ejecutamos (no hay parámetros que vincular)
+      if (!$stmt->execute()) {
+          echo "Falló la ejecución: (" . $stmt->errno . ") " . $stmt->error;
+      }
+
+  
+      $result = $stmt->get_result();  # si nos devuelve alguna fila (la consulta no está vacía)
+      
+      #$producto = array('nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'rutaimagen1' => $row['rutaimagen1'], 'rutaimagen2' => $row['rutaimagen2']);
+  
+      // $producto = array('id' => $row['id_prod'], 'nombre' => $row['nombre'], 'marca' => $row['marca'], 'precio' => $row['precio'], 'descripcion' => $row['descripcion'], 'fecha' => $row['fechaPublicacion'], 'publicado' => $row['publicado']);
+      
+      $productos = array();
+
+      while ($row = $result->fetch_assoc()){
+        $id = $row['id_prod'];
+        $nombre = $row['nombre'];
+        $marca = $row['marca'];
+        $precio = $row['precio'];
+        $descripcion = $row['descripcion'];
+        $fecha = $row['fechaPublicacion'];
+        $publicado = $row['publicado'];
+
+        $productos []= array(
+          'id' => $id,
+          'nombre' => $nombre,
+          'marca' => $marca,
+          'precio' => $precio,
+          'descripcion' => $descripcion,
+          'fecha' => $fecha,
+          'publicado' => $publicado
+        );
+      }
+      return $productos;
+    } 
+
+  # Función para obtener los comentarios relacionados con un producto ----------
   function getComment($idProd){
 
     $mysqli = checkCon($mysqli);
@@ -131,13 +180,24 @@
     return $imagenes;
   }
 
-  function insertComment($autor, $fecha, $texto){
+  function insertComment($comment){
     $mysqli = checkCon($mysqli);
+    $query = "INSERT INTO comentarios (id_prod, autor, texto, fecha) VALUES (?, ?, ?, NOW())";
+    // Prepare statement
+    if (!($stmt = $mysqli->prepare($query))) return false;
+    // Bind variables to the prepared statement as parameters
+    if (!$stmt->bind_param("iss", $comment['id_prod'], $comment['autor'], $comment['texto'])) return false;
+    // Execute the prepared statement
+    if (!$stmt->execute()) return false; // Si falla, devuelve false y muestra el error
+    
+    return true;
+  }
 
-    $palabras = [];
-    $stmt = "INSERT INTO comentarios(autor, fecha, texto) VALUES ($autor, $fecha, $texto)";
-    $result = $mysqli->query($stmt);
-
+  function insertProduct($product){
+    $mysqli = checkCon($mysqli);
+    $query = "INSERT INTO productos (id_prod, nombre, marca, precio, descripcion, fechaPublicacion, publicado) VALUES (?, ?, ?, ?, ?, NOW(), ?)";
+    $result = queryStmt($mysqli, $query, $product['id'], $product['nombre'], $product['marca'], $product['precio'], $product['descripcion'], $product['publicado']);
+    return $result;
   }
 
   # Función que permite consultar la BD de palabras banneadas
@@ -157,8 +217,9 @@
     return $palabras;
 }
 
-  # Función para obtener los datos de usuario en función del nombre de usuario
+  # Función para obtener los datos de usuario en función del nombre de usuario ----------
   function getUser($username){
+    
     $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
 
     # Preparamos la sentencia
@@ -193,7 +254,7 @@
     return $usuario;
  }
 
- // Función para registrar un usuario
+ // Función para registrar un usuario ----------------------------------------------------------------
  function registerUser($user){
     $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
 
@@ -218,7 +279,7 @@
     return true;
  }
 
- // Función para comprobar el login del usuario
+ // Función para comprobar el login del usuario ----------------------------------------------------------------
  function checkLogin($username, $pass){
     $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
 
@@ -273,7 +334,7 @@
     return true;  
   }
 
- // Función para editar los datos del usuario
+ // Función para editar los datos del usuario ----------------------------------------------------------------
   function editProfile($user){
     $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
 
@@ -294,6 +355,41 @@
     }
     return true;
   }
+
+  // Función para buscar productos en la base de datos ------------------------
+
+  function searchProducts($user, $query){
+    $mysqli = checkCon($mysqli); # Comprobamos la conexión a la bd
+    
+    if ($user['manage'] || $user['admin']){ // Si es gestor o administrador
+      $search_query = "SELECT * FROM productos WHERE nombre LIKE '%$query%' OR descripcion LIKE '%$query%'";
+    } else {
+      $search_query = "SELECT * FROM productos WHERE publicado=1 AND (nombre LIKE '%$query%' OR descripcion LIKE '%$query%')";
+    }
+
+    //Prepare statement
+    if (!($stmt = $mysqli->prepare($search_query))) {
+      // echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
+      return false;
+    }
+    // Ejecutamos la sentencia
+    if (!$stmt->execute()) {
+      // echo "Falló la ejecución: (" . $stmt->errno . ") " . $stmt->error;
+      return false;
+    }
+    // Obtenemos el resultado de la consulta
+    $res = $stmt->get_result();
+    $productos = array();
+
+    if ($res->num_rows > 0){
+      while($row = $res->fetch_assoc()){
+        $productos[] = $row;
+      }
+    }
+
+    return $productos;
+  }
+
 
 
 ?>

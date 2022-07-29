@@ -1,7 +1,7 @@
-let searchElement = null;
-window.onload = init;
+let searchElement = [];
+window.onload = initialize;
 
-function init() {
+function initialize() {
   searchElement = document.getElementById("search-text");
   searchElement.addEventListener("keyup", async () => {
     const searchQuery = searchElement.value;

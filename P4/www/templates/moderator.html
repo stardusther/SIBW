@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../assets/moderator.css">
+{% endblock %}
+
+{% block cuerpo %}
+<div id="mod-flex">
+    <form id="mod-form" method="post">
+        <h3 id="title-mod">Zona de moderación</h3><hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Comentario</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for com in comments %}
+                <tr>                  
+                    <td class="col1">
+                        <span class="idproduct">{{com.id_prod}}</span>
+                    </td>
+                    <td class="col2">
+                        <span class="comment-text">{{com.texto}}</span>
+                    </td>
+                    <td class="col3">
+                        <a href="edit_comment.php?id={{com.id_com}}" ><i class="fa-solid fa-pencil editar"></i></a>
+                    </td>
+                    <td class="col3">
+                        <a href="delete_comment.php?id={{com.id_com}}" ><i class="fa-solid fa-trash-can editar"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+   
+        
+{% endblock %}

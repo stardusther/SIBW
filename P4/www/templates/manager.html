@@ -1,0 +1,58 @@
+{% extends "base.html"%} {% block stylesheets %} {{ parent() }}
+<link rel="stylesheet" href="../assets/manager.css" />
+{% endblock %} {% block cuerpo %}
+
+
+<div id="manager-flex">
+  <form id="manager-form" method="post">
+    <h3 id="title-mod">Zona de gestión</h3>
+    <hr />
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Comentario</th>
+          <th>Estado</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for prod in products %}
+        <tr>
+          <td class="col1">
+            <span class="idproduct">{{prod.nombre}}</span>
+          </td>
+          <td class="col2">
+            <span class="prod-desc">{{prod.descripcion}}</span>
+          </td>
+          <td class="col3">
+            {% if prod.publicado == 1 %}
+            <a href="set_visibility.php?id={{prod.id}}"
+              ><i class="fa-solid fa-eye"></i
+            ></a>
+            {%else%}
+            <a href="set_visibility.php?id={{prod.id}}"
+              ><i class="fa-solid fa-eye-slash"></i
+            ></a>
+            {% endif %}
+          </td>
+          <td class="col3">
+            <a href="edit_product.php?id={{prod.id}}"
+              ><i class="fa-solid fa-pencil borrar"></i
+            ></a>
+          </td>
+          <td class="col3">
+            <a href="delete_product.php?id={{prod.id}}"
+              ><i class="fa-solid fa-trash-can editar"></i
+            ></a>
+          </td>
+          
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+</div>
+
+{% endblock %}

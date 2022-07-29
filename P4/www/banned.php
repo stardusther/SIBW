@@ -1,6 +1,7 @@
 <?php
 
     include ("database.php");
+    include ("comments.js");
     #incluir lo de las palabras TODO
 
     $palabras = getBannedWords();

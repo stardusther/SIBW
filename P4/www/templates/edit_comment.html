@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+{{ parent()}}
+<link rel="stylesheet" href="../assets/edit_comment.css" />
+{% endblock %}
+
+{%block cuerpo %}
+<div id="flex-comment-edit">
+  <div class="container-form">
+      <h2 id="edit-comment">Editar un comentario</h2><hr>
+    
+      <form id="edit-comment-form" method="POST">
+        <label id="comlabel" for="comentario-nuevo">Nuevo comentario</label>
+        <textarea required name="newText" id="newComment" placeholder="Escribe lo que quieras...">{{oldText}}</textarea>
+        
+        {% if codigo_error == 1 %}
+          <p class="success">Comentario editado con éxito</p>
+        {% elseif codigo_error == 2 %}
+          <p class="fail">Error al editar comentario</p>
+        {% elseif codigo_error == 3 %}
+          <p class="fail">El mensaje no puede dejarse vacío</p>
+        {% endif %}
+        <div id="flex-button">
+          <input class="savebtn" type="submit" value="Guardar">
+          <a id="back-button" href="moderator.php">Volver a moderación</a>
+        </div>
+      </form>
+    </div>
+</div>
+
+{% endblock %}

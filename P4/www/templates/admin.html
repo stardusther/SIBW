@@ -1,0 +1,55 @@
+{% extends "base.html"%}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../assets/admin.css">
+{% endblock %}
+
+{% block cuerpo %}
+<div id="admin-flex">
+    <form id="permission-form" method="post">
+        <h3 id="title-admin">Gestión de permisos de Usuarios</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Usuarios</th>
+                    <th>Admin</th>
+                    <th>Gestor</th>
+                    <th>Moderador</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usr in usuarios %}
+                <tr>
+                    <td>{{usr.user}}</td>
+                    <td>
+                        <input type="checkbox" name="{{usr.user}}-admin" value="admin" {% if usr.admin %}checked{% endif
+                            %}{% if usr.user == usuario.user %} disabled {% endif %}>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="{{usr.user}}-manage" value="manager" {% if usr.manage %}checked{% endif%}>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="{{usr.user}}-moderate" value="moderator" {% if usr.moderate %}checked{% endif %}>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p id="mensaje">{{msg}}</p>
+        <input id="admin-button" type="submit" value="Guardar"></input>
+    </form>
+
+    <br>
+    <h3 id="title-admin">Enlaces de interés</h3>
+
+    <div id="enlaces-admin">
+        <nav>
+            <a href="moderator.php" class="admin-task"><button>Moderación</button></a>
+            <a href="manager.php" class="admin-task"><button>Gestión</button></a>
+        </nav>
+    </div>
+</div>
+
+
+{% endblock %}

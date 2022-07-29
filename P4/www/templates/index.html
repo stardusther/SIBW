@@ -11,9 +11,8 @@
 
 {%block searchbar %}
     <div id="searchbar">
-        <input id="search-text" type="text" name="search"><i class="fas fa-search"></i>
-        <div id="results"></div>
-        
+        <input id="search-text" type="text" name="search" placeholder="Búsqueda"><!--i class="fas fa-search"></i-->
+        <div id="results"><ul></ul></div>
     </div>
 {%endblock %}
 
@@ -22,7 +21,7 @@
         <!--- Productos --->
         <section class="flex-productos">
             {% for prod in productos %}
-                {% if prod.publicado == true or usuario.admin or usuario.moderate %}
+                {% if prod.publicado == true or usuario.admin or usuario.manage %}
                 <div class="producto">
                     <a href='producto.php?prod={{prod.id}}'><img  src="../images/pencil.png" alt={{prod.nombre}}></a>
                 </div>

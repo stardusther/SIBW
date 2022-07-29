@@ -1,0 +1,91 @@
+#admin-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+  text-align: center;
+}
+#permission-form {
+  padding: 16px;
+  background-color: white;
+  border-radius: 10px;
+  width: 400px;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+#title-admin {
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: uppercase;
+  color: #b6a6ca;
+}
+
+#admin-button {
+  background-color: #b6a6ca;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  opacity: 0.9;
+
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#mensaje {
+  color: #b6a6ca;
+}
+
+tr {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+th {
+  width: 100px;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#enlaces-admin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  width: 100%;
+}
+
+#enlaces-admin button{
+  background-color: #8f78ab;
+  color: white;
+  padding: 14px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  opacity: 0.9;
+
+  font-weight: bold;
+  font-size: 15px;
+}

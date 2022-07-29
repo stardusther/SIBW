@@ -66,7 +66,7 @@ function liked(){
 // Mostrar comentarios --------------------------------------------------
 
 function showComments() {
-    if (commentDiv.style.display === "none") {
+    if (commentDiv.style.display == "none") {
         commentDiv.style.display = "flex";
         showButton.textContent = "Ocultar comentarios";
     } else {

@@ -19,11 +19,11 @@
         <link rel="stylesheet" href="../assets/footer.css">
     {% endblock %}
      <!--- Script para comentarios --->
-    <script src="../templates/comments.js"></script>
-    <script src="../templates/search.js"></script>
+     {% block scripts %}
+        <script src="../templates/search.js"></script>
+    {% endblock %}
     <!-- Librería de iconos -->
-    <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>
-    <!--- google fonts--->
+    <script src="https://kit.fontawesome.com/a06e2f8764.js" crossorigin="anonymous"></script>    <!--- google fonts--->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
@@ -50,24 +50,30 @@
         </div>
         
         {% if usuario %}
-            <a class="menu2" id="edit_user" href="edit_user.php"><i class="fa fa-user" aria-hidden="true"></i>{{usuario.nombre}}</a>
-            <a class="menu2" id="edit_usert" href="logout.php">Cerrar sesión</a>            
+            <a class="menu2" href="edit_user.php"><i class="fa fa-user" aria-hidden="true"></i>{{usuario.nombre}}</a>
+            {%if usuario.moderate %}
+                <a class="menu2" href="moderator.php"><i class="fa fa-comment" aria-hidden="true"></i></a>
+            {%endif%}
+            {%if usuario.manage %}
+                <a class="menu2" href="manager.php"><i class="fa fa-file-signature" aria-hidden="true"></i></a>
+            {%endif%}
+            {%if usuario.admin %}
+                <a class="menu2" href="moderator.php"><i class="fa fa-comment " aria-hidden="true"></i></a>
+                <a class="menu2" href="manager.php"><i class="fa fa-file-signature " aria-hidden="true"></i></a>
+                <a class="menu2" href="admin.php"><i class="fa fa-cog " aria-hidden="true"></i></a>
+            {% endif %}
+            <a class="menu2" id="logout" href="logout.php"><i class="fa fa-sign-out " aria-hidden="true"></i></a>
         {% else %}
             <a class="menu2" id="login" href="login.php"> Acceder </a>
             <a class="menu2" id="register" href="register.php"> Registrarse </a>
         {% endif %}
             <!--i class='fas fa-shopping-cart'></i-->
     </nav>
-
-    
-
 </header>
 
 {% block cuerpo %}
     <!--- Barra lateral --->
-    <aside>
-        {%block searchbar %}{% endblock %}
-            
+    <aside>            
         <span class="flex-menusocial">
             {% block socials %}
             <!-- Iconos sociales --->
@@ -76,11 +82,14 @@
             <a href="https://twitter.com" class="fa fa-twitter"></a>
             {% endblock %}
         </span>
-        <ul>
+
+        {%block searchbar %}{% endblock %}
+
+        <!---ul>
             <li><a href=#> Enlace de interés </a></li>
             <li><a href=#> Enlace de interés </a></li>
             <li><a href=#> Enlace de interés </a></li>
-        </ul>
+        </ul-->
     </aside>
 {% endblock %}
 

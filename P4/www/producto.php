@@ -38,6 +38,7 @@
     $producto = getProduct($idProd);  
     $imagenes = getImages($idProd);
     $comentarios = getComment($idProd);
+    $tags = getTags($idProd);
 
     //Sólo los admins y gestores pueden ver los productos no publicados
     if (!$producto['publicado'] && !$usuario['admin'] && !$usuario['manage']){
@@ -45,5 +46,5 @@
         exit();
     }
 
-    echo $twig->render('producto.html', ['usuario' => $usuario, 'producto' => $producto, 'imagenes' => $imagenes, 'comentarios' => $comentarios]);
+    echo $twig->render('producto.html', ['usuario' => $usuario, 'producto' => $producto, 'imagenes' => $imagenes, 'comentarios' => $comentarios, 'tags' => $tags]);
 ?>

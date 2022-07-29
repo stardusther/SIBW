@@ -1,0 +1,115 @@
+#edit-comment {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000;
+
+  text-align: center;
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+#comlabel {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+#flex-comment-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#edit-comment-form {
+  margin-top: 1em;
+}
+
+#newComment {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: none;
+}
+
+#back-button {
+  margin-top: 10px;;
+  color: #b6a6ca;
+  padding: 16px 20px;
+  border: 1px solid #b6a6ca;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+}
+
+#flex-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-form {
+  padding: 16px;
+  background-color: white;
+  border-radius: 10px;
+  width: 600px;
+  min-height: 550px;
+  margin: 20px;
+}
+
+/* Full-width input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+input[type="text"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.savebtn:hover {
+  opacity: 1;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.savebtn {
+  background-color: #b6a6ca;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  opacity: 0.9;
+
+  font-weight: bold;
+  font-size: 15px;
+}

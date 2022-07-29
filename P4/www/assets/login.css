@@ -17,6 +17,11 @@
     border-radius: 4px;
     width: 400px;
   }
+
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
   
   /* Full-width inputs */
   input[type=text], input[type=password] {
@@ -24,9 +29,10 @@
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: none;
     box-sizing: border-box;
-    border-radius: 4px;
+    border-radius: 10px;
+    background: #f1f1f1;
   }
   
   /* Set a style for all buttons */
@@ -37,7 +43,7 @@
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 10px;
     width: 100%;
     opacity: 0.9;
 
@@ -60,17 +66,15 @@
     text-align: center;
   }
   
-  /* The "Forgot password" text */
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-
   .fail {
     display: flex;
     justify-content: center;
     color: lightcoral;
     text-align: center;
+  }
+
+  a:visited{
+    color: #B6A6CA;
   }
 
   /* Change styles for span and cancel button on extra small screens */

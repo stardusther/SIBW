@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+
+{% block stylesheets %} {{ parent() }}
+<link rel="stylesheet" href="../assets/edit_product.css" />
+{% endblock %} 
+
+{% block cuerpo %}
+<div class="flex-product-edition">
+    <form id="product-edition-form" method="post">
+        <h3 id="title-mod">Edición de producto</h3>
+        <hr />
+        <label for="nombre">Nombre</label><br/>
+        <input type="text" name="nombre" id="nombre" value="{{ producto.nombre }}" required /><br/>
+        <label for="marca">Marca</label><br/>
+        <input type="text" name="marca" id="nombre" value="{{ producto.marca }}" required /><br/>
+        <label for="precio">Precio</label><br/>
+        <input type="text" name="precio" id="precio" value="{{ producto.precio }}" required /><br/>
+        <label for="images[]">Imágenes</label>
+        <input type="file" name="imgs[]" multiple accept=".png,.jpeg,.jpg,.gif"/><br/>
+        <label for="desc">Descripción</label><br/>
+        <textarea name="desc" id="desc" required>{{producto.descripcion}}</textarea><br/>
+        <label for="etiqueta">Etiquetas</label><br/>
+        {% for tag in tags %}
+            <input type="checkbox" name="etiquetas[]" value="{{ tag.etiqueta }}" {% if tag.etiqueta in etiquetasProducto %}checked{% endif %}/> {{ tag.etiqueta }} <br/>
+        {% endfor %}
+        <input type="submit" value="Guardar" />
+        </div>
+    </form>
+
+</div>
+{% endblock %} 
+

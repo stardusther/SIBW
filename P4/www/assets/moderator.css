@@ -1,0 +1,56 @@
+#mod-form {
+  padding: 16px;
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+}
+
+#mod-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+th {
+  width: 100px;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.col2 {
+  text-align: justify;
+}
+
+.col3 {
+  width: 20px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.editar, .borrar {
+    color: #7a91c6;
+}

@@ -1,10 +1,20 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
+    background-color: #e1dee9;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   * {
     box-sizing: border-box;
+  }
+
+  form {
+    padding: 16px;
+    background-color: white;
+    border-radius: 4px;
+    width: 400px;
   }
   
   /* Add padding to containers */
@@ -21,6 +31,7 @@ body {
     display: inline-block;
     border: none;
     background: #f1f1f1;
+    border-radius: 10px;
   }
   
   input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
@@ -36,7 +47,7 @@ body {
   
   /* Set a style for the submit button */
   .registerbtn {
-    background-color: #04AA6D;
+    background-color: #B6A6CA;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
@@ -44,6 +55,10 @@ body {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size: 15px;
   }
   
   .registerbtn:hover {
@@ -54,9 +69,12 @@ body {
   a {
     color: dodgerblue;
   }
+
+  a:visited{
+    color: #B6A6CA;
+  }
   
   /* Set a grey background color and center the text of the "sign in" section */
   .signin {
-    background-color: #f1f1f1;
     text-align: center;
   }

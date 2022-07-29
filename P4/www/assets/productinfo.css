@@ -50,7 +50,7 @@ article{
 }
 
 /* Título Producto*/
-article h2{
+.titulo-prod{
 	font-family: 'Didact Gothic', sans-serif;
 	font-weight: bolder;
 	font-size: xx-large;
@@ -98,4 +98,49 @@ article h4 {
 	background: rgba(0, 0, 0, 0.6);
 }
 
+#tags-flex{
+	display: flex;
+	justify-content: left;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 1%;
+	width: 30%;
+}
+
+.tag{
+	background: #fff;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px;
+	width: auto;
+	color: #7a709a;
+	font-weight: bolder;
+	font-size: 15px;
+}
+
+.fa-eye, .fa-eye-slash {
+	font-size: 20px;
+	color: #7a709a;
+}
+
+.fa-eye-slash{
+	margin-left: 5px;
+	color: #aaa3c4;
+}
+
+.flex-container{
+	flex-direction: column;
+	width: 100%;
+	justify-content: left;
+}
+
+#button-editar{
+	margin-left: 30px;
+	font-size: 20px;
+	color: #7a709a;
+}
+
+a{
+	text-decoration: none;
+}
 
